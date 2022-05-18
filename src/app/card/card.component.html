@@ -1,0 +1,15 @@
+<div class="card-container" *ngIf="showCard">
+  <div class="card-deck"  style="width:400px; padding:10px 15px;" >
+    <div class="card" style="border: 1px solid #555555;" >
+      <img class="card-img-top" src="{{data.strDrinkThumb}}" >
+      <div class="card-body" style="background-color:#f0f5f5;">
+        <h5 class="card-title" style="text-align:center;">{{data.strDrink}}</h5>
+      </div>
+      <div class="card-footer" style="height:60px;">
+         <div class="center">
+            <button (click)="onDetail()" id="myBtn">Detail</button>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>

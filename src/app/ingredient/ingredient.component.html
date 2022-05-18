@@ -1,0 +1,66 @@
+<div class="d-flex flex-row-reverse">
+  <div class="search-container" >
+   <input type="text" [(ngModel)]="searchTxt" class="search-click" name="" placeholder="search here..." />
+   <button  (click)="onSearch(searchTxt)" class="search-button" type="submit"><i class="fa fa-search"></i></button>
+  </div>
+ </div>
+
+<div class="d-flex align-content-around flex-wrap justify-content-center">
+  <div class="p-2" *ngFor="let ingredient of shortIngredients">
+    <button (click)="onSelect(ingredient)" type="button" class="btn btn-light">{{ingredient.strIngredient1}}</button>
+  </div>
+</div>
+<!-- <div *ngFor="let newing of newIngredients" class="container">
+  <div class="container-header">
+    <h5>{{newing.strDrink}}</h5>
+    <div class="container-body">
+      <img src="{{newing.strDrinkThumb}}">
+    </div>
+  </div>
+</div> -->
+<div class="d-flex flex-wrap justify-content-center">
+  <div *ngFor="let name of searchResults">
+    <div class="d-flex flex-wrap justify-content-center align-content-between">
+      <div style="padding:20px 0px;">Ingredient name: {{name.strIngredient}}</div>
+      <div style="padding:20px 30px;">Description: {{name.strDescription}}</div>
+  </div>
+  </div>
+</div>
+
+<!-- <div class="card-container" *ngIf="showCard">
+  <div class="card-deck"  style="width:400px; padding:10px 15px;" *ngFor="let newing of newIngredients">
+    <div  class="card" style="border: 1px solid #555555;">
+      <img class="card-img-top" src="{{newing.strDrinkThumb}}" >
+      <div class="card-body" style="background-color:#f0f5f5;">
+        <h5 class="card-title" style="text-align:center;">{{newing.strDrink}}</h5>
+      </div>
+      <div class="card-footer" style="height:60px;">
+        <div class="center">
+          <button (click)="onDetail(newing)" id="myBtn">Detail</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<div class="d-flex flex-wrap justify-content-center">
+  <app-card *ngFor="let ingredient of newIngredients" [data]="ingredient" (detailEvent)="onDetail(ingredient)" [showCard]="showCard"></app-card>
+ </div>
+
+<div class="container" *ngIf="showModal">
+  <div class="modal-content" *ngFor="let newing of details">
+    <div  class="d-flex justify-content-end">
+      <button class="close_button" (click)="onCloseModal()" style="font-size:30px; cursor: pointer;" id="close">&times;</button>
+    </div>
+  <div class="header">
+  <h5 style="text-align:center;">{{newing.strDrink}}</h5>
+</div>
+<hr>
+<div class="body">
+  <br>
+  <p style="text-align:center;">{{newing.strInstructions}}</p>
+</div>
+<div class="modal-footer" style="padding: 8px 16px;">
+</div>
+  </div>
+</div>

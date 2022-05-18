@@ -1,0 +1,41 @@
+<header>
+  <h1 class="cocktailheader">~Cocktail~</h1>
+</header>
+
+<nav class="navbar navbar-expand-lg">
+  <!--<div class="collapse navbar-collapse" id="navbarNavDropdown">-->
+    <ul class="navbar-nav">
+      <div class="d-flex align-content-around flex-wrap justify-content-between">
+      <li class="nav-item active" >
+        <a routerLink="/categories" routerLinkActive="active" class="nav-link" (click)="toggleSearch()">Category <span class="sr-only"></span></a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="/ingredients" routerLinkActive="active" class="nav-link" (click)="toggleSearch()">Ingredients</a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="/glasses" routerLinkActive="active" class="nav-link" (click)="noSaerch()">Glass</a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="/alcoholics" routerLinkActive="active" class="nav-link" (click)="noSaerch()">Alcoholic</a>
+      </li>
+    </div>
+    </ul>
+    <!-- <app-search *ngIf="showSearch"></app-search> -->
+  <!--</div>-->
+
+  <!-- <div class="search-container" *ngIf="showSearch">
+    <div *ngFor="let search of searches">
+    <form>
+      <input type="text" class="search-click" name="" placeholder="search here..." />
+      <button (click)="onSearch(search)" class="search-button" type="submit"><i class="fa fa-search"></i></button>
+    </form>
+    <p>{{search.strDrink}}</p>
+  </div>
+  </div> -->
+
+</nav>
+
+
+
+<router-outlet></router-outlet>
+

@@ -1,0 +1,51 @@
+<div class="d-flex align-content-around flex-wrap justify-content-center">
+  <div class="p-2" *ngFor="let glass of shortGlasses">
+    <button (click)="onSelect(glass)" type="button" class="btn btn-light">{{glass.strGlass}}</button>
+  </div>
+</div>
+
+<!-- <div *ngFor="let newgla of newGlasses" class="container">
+  <div class="container-header">
+    <h5>{{newgla.strDrink}}</h5>
+    <div class="container-body">
+      <img src="{{newgla.strDrinkThumb}}">
+    </div>
+  </div>
+</div> -->
+
+<!-- <div class="card-container" >
+  <div class="card-deck"  style="width:400px; padding:10px 15px;" *ngFor="let newgla of newGlasses">
+    <div class="card" style="border: 1px solid #555555;">
+      <img class="card-img-top" src="{{newgla.strDrinkThumb}}" >
+      <div class="card-body" style="background-color:#f0f5f5;">
+        <h5 class="card-title" style="text-align:center;">{{newgla.strDrink}}</h5>
+      </div>
+      <div class="card-footer" style="height:60px;">
+        <div class="center">
+          <button (click)="onDetail(newgla)" id="myBtn">Detail</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+<div class="d-flex flex-wrap justify-content-center">
+  <app-card *ngFor="let glass of newGlasses" [data]="glass" (detailEvent)="onDetail(glass)" [showCard]="showCard"></app-card>
+ </div>
+
+<div class="container" *ngIf="showModal">
+  <div class="modal-content" *ngFor="let newgla of details">
+    <div  class="d-flex justify-content-end">
+      <button class="close_button" (click)="onCloseModal()" style="font-size:30px; cursor: pointer;" id="close">&times;</button>
+    </div>
+  <div class="header">
+  <h5 style="text-align:center;">{{newgla.strDrink}}</h5>
+</div>
+<hr>
+<div class="body">
+  <br>
+  <p style="text-align:center;">{{newgla.strInstructions}}</p>
+</div>
+<div class="modal-footer" style="padding: 8px 16px;">
+</div>
+  </div>
+</div>
