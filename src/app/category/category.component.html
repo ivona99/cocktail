@@ -1,7 +1,7 @@
 <div class="d-flex flex-row-reverse">
  <div class="search-container" >
   <input type="text" [(ngModel)]="searchTxt" class="search-click" name="" placeholder="search here..." />
-  <button  (click)="onSearch(searchTxt)" class="search-button" type="submit"><i class="fa fa-search"></i></button>
+  <button  (click)="onSearch(searchTxt)" class="search-button" type="submit"><i class="fa fa-search" style="color:#555555;"></i></button>
  </div>
 </div>
 
@@ -24,7 +24,11 @@
         </div>
         <div class="card-footer" style="height:60px;">
             <div class="center">
-              <button (click)="onDetail(name)" id="myBtn">Detail</button>
+              <button (click)="onDetail(name)" id="myBtn">Detail
+
+              </button>
+
+
             </div>
         </div>
       </div>
