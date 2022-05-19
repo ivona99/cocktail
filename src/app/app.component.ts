@@ -12,12 +12,7 @@ export class AppComponent {
   public searches: any=[];
 
 constructor(private cocktailService:CocktailService){}
-  toggleSearch() {
-    this.showSearch=true;
-  }
-  noSaerch(){
-    this.showSearch=false;
-  }
+
 
   onSearch(name:any){
     this.cocktailService.getSearchName(name.strDrink)

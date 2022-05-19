@@ -1,3 +1,4 @@
+import { FavoriteComponent } from './favorite/favorite.component';
 import { AlcoholicComponent } from './alcoholic/alcoholic.component';
 import { GlassComponent } from './glass/glass.component';
 import { IngredientComponent } from './ingredient/ingredient.component';
@@ -9,7 +10,8 @@ const routes: Routes = [
   {path: 'categories', component: CategoryComponent},
   {path: 'ingredients', component: IngredientComponent},
   {path: 'glasses', component: GlassComponent},
-  {path: 'alcoholics', component: AlcoholicComponent}
+  {path: 'alcoholics', component: AlcoholicComponent},
+  {path: 'favorites', component: FavoriteComponent}
 
 ];
 
@@ -20,4 +22,4 @@ const routes: Routes = [
 
 export class AppRoutingModule { }
 
-export const routingComponents = [CategoryComponent, IngredientComponent, GlassComponent, AlcoholicComponent]
+export const routingComponents = [CategoryComponent, IngredientComponent, GlassComponent, AlcoholicComponent, FavoriteComponent]

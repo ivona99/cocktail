@@ -1,0 +1,21 @@
+<div class="d-flex flex-wrap justify-content-center">
+  <app-card *ngFor="let favorite of myCocktails" [data]="favorite" (detailEvent)="onDetail(favorite)" [showCard]="showCard"></app-card>
+</div>
+
+<div class="container" *ngIf="showModal">
+  <div class="modal-content" *ngFor="let newcat of details">
+    <div  class="d-flex justify-content-end">
+      <button class="close_button" (click)="onCloseModal()" style="font-size:30px; cursor: pointer;" id="close">&times;</button>
+    </div>
+  <div class="header">
+  <h5 style="text-align:center;">{{newcat.strDrink}}</h5>
+</div>
+<hr>
+<div class="body">
+  <br>
+  <p style="text-align:center;">{{newcat.strInstructions}}</p>
+</div>
+<div class="modal-footer" style="padding: 8px 16px;">
+</div>
+  </div>
+</div>
