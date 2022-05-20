@@ -11,7 +11,7 @@ export class FavoriteComponent implements OnInit {
   showCard = true;
   public details:any =[];
   showModal?:boolean;
-
+isSelected = true;
   constructor(private cocktailService: CocktailService) { }
 
   ngOnInit(): void {

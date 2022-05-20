@@ -10,6 +10,9 @@ export class CardComponent implements OnInit {
   category:any;
   @Input() showCard?:boolean;
  favArray: any;
+// button : any= document.getElementById('btn1');
+  @Input() isSelected = true;
+ private _autoSlide: any;
 
 
 
@@ -24,6 +27,8 @@ export class CardComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+
+
   }
 onSubmit(id:any){
 //let favoriteArray:any = [];
@@ -31,6 +36,13 @@ onSubmit(id:any){
 this.favArray = localStorage.getItem('favorites');
 if(this.favArray){
   this.favArray = JSON.parse(this.favArray);
+this.isSelected = !this.isSelected;
+
+// if(this.button.style.color == "red"){
+//   this.button.style.color="grey";
+// }else{
+//   this.button.style.color = "red";
+// }
 
   let elIndex = this.favArray.findIndex((element:any) => element.idDrink == id);
   if(elIndex!= -1){
@@ -46,12 +58,23 @@ if(!this.favArray){
 
 
 
-
 localStorage.setItem('favorites', JSON.stringify(this.favArray));
-    //this.myItem= localStorage.getItem(this.favArray);
 
 
 }
 
 
+
+
+// changeColor(){
+
+//   if(this.btn.style.color == "grey"){
+//     this.btn.style.color = "red";
+
+//     } else{
+//       this.btn.style.color = "grey";
+//     }
+// }
 }
+
+
