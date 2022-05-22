@@ -20,7 +20,7 @@ export class CategoryComponent implements OnInit {
   searchTxt: any = '';
   searchResults:any;
   showCard = true;
-
+  myCocktails: any;
 
 
   constructor(
@@ -43,6 +43,14 @@ export class CategoryComponent implements OnInit {
           console.log(this.shortCategories);
 
         })
+        // this.myCocktails = localStorage.getItem("favorites");
+        // this.myCocktails = JSON.parse(this.myCocktails);
+        // this.myCocktails.array.forEach((element:any) => {
+        //   if(element.isSelected==true){
+
+        //   }
+        // });
+        console.log("hahaha", this.myCocktails);
 
 
   }
@@ -52,9 +60,14 @@ export class CategoryComponent implements OnInit {
     // this._strCategory = strCategory;
      this.cocktailService.getCategory(category.strCategory)
      .subscribe((data:any) =>{
+       
        this.newCategories = data.drinks;
-
+      this.newCategories.forEach(function (element:any) {
+        element.isSelected =false;
+      });
+       
        console.log(this.newCategories);
+       
       if(this.showCard ===  false){
         this.searchResults = null;
         this.showCard = true;

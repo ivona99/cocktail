@@ -10,9 +10,8 @@ export class CardComponent implements OnInit {
   category:any;
   @Input() showCard?:boolean;
  favArray: any;
-// button : any= document.getElementById('btn1');
-  @Input() isSelected = true;
- private _autoSlide: any;
+  @Input() isSelected?:boolean;
+
 
 
 
@@ -27,37 +26,42 @@ export class CardComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-
+    
 
   }
 onSubmit(id:any){
-//let favoriteArray:any = [];
-  //this.favArray.push(this.data);
 this.favArray = localStorage.getItem('favorites');
-if(this.favArray){
-  this.favArray = JSON.parse(this.favArray);
-this.isSelected = !this.isSelected;
+let favorite: any= document.getElementsByClassName("fa fa-heart")[0];
+this.data.isSelected=false;
+console.log("je li", this.data);
 
-// if(this.button.style.color == "red"){
-//   this.button.style.color="grey";
-// }else{
-//   this.button.style.color = "red";
-// }
+if(this.favArray){
+  this.data.isSelected = true;
+  this.favArray = JSON.parse(this.favArray);
+console.log("blbla", favorite);
+
+
+  this.isSelected = !this.isSelected;
 
   let elIndex = this.favArray.findIndex((element:any) => element.idDrink == id);
   if(elIndex!= -1){
     this.favArray.splice(elIndex, 1);
   }else{
     this.favArray.push(this.data);
+    console.log("favorite", favorite);
+    
+   console.log(this.data);
+    console.log(this.favArray);
+
+    // if(this.data.isSelected==true){
+    //   favorite["style"].color = "red";
+    // }
   }
 
 }
 if(!this.favArray){
   this.favArray = [];
 }
-
-
-
 localStorage.setItem('favorites', JSON.stringify(this.favArray));
 
 
