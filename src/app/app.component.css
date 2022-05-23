@@ -1,11 +1,30 @@
 nav{
   background-color: #ffffff;
   display: flex;
-  justify-content:space-between;
+  justify-content:flex-start;
   align-items: center;
- 
-}
+  margin-bottom: 0px;
 
+}
+.cocktailheader{
+  text-align: center;
+  line-height: 60px;
+  width: 50px;
+}
+.header-box{
+  width: 300px;
+  height: 100px;
+
+  float: left;
+  border-radius: 5px;
+
+}
+.container-all{
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  padding: 10px 40px;
+}
 .nav-link{
   font-size: 20px;
   color: black;

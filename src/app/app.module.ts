@@ -9,13 +9,15 @@ import { FormsModule } from '@angular/forms';
 import { SearchComponent } from './search/search.component';
 import { CardComponent } from './card/card.component';
 import { FavoriteComponent } from './favorite/favorite.component';
+import { HomeComponent } from './home/home.component';
 @NgModule({
   declarations: [
     AppComponent,
     routingComponents,
     SearchComponent,
     CardComponent,
-    FavoriteComponent
+    FavoriteComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

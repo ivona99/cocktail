@@ -10,17 +10,20 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./category.component.css']
 })
 export class CategoryComponent implements OnInit {
+
+
   public categories: any =[];
   public shortCategories:any =[];
   public _strCategory:any;
   public newCategories:any=[];
   public details:any =[];
   showModal?:boolean;
-  
+
   searchTxt: any = '';
   searchResults:any;
   showCard = true;
   myCocktails: any;
+  isSelected = true;
 
 
   constructor(
@@ -29,7 +32,8 @@ export class CategoryComponent implements OnInit {
     private route1: ActivatedRoute) { }
 
   ngOnInit(): void {
-
+    this.myCocktails = localStorage.getItem("favorites");
+    this.myCocktails = JSON.parse(this.myCocktails);
     this.cocktailService.getCocktailsCategory()
         .subscribe((data: any) => {
           this.categories = data.drinks;
@@ -43,14 +47,13 @@ export class CategoryComponent implements OnInit {
           console.log(this.shortCategories);
 
         })
-        // this.myCocktails = localStorage.getItem("favorites");
-        // this.myCocktails = JSON.parse(this.myCocktails);
+
         // this.myCocktails.array.forEach((element:any) => {
         //   if(element.isSelected==true){
 
         //   }
         // });
-        console.log("hahaha", this.myCocktails);
+        //console.log("hahaha", this.myCocktails);
 
 
   }
@@ -60,14 +63,14 @@ export class CategoryComponent implements OnInit {
     // this._strCategory = strCategory;
      this.cocktailService.getCategory(category.strCategory)
      .subscribe((data:any) =>{
-       
+
        this.newCategories = data.drinks;
       this.newCategories.forEach(function (element:any) {
         element.isSelected =false;
       });
-       
+
        console.log(this.newCategories);
-       
+
       if(this.showCard ===  false){
         this.searchResults = null;
         this.showCard = true;
@@ -117,7 +120,25 @@ onSearch(name:any){
          this.searchResults = data.drinks;
        }
        this.showCard = false;
-       
+
      })
+}
+
+favoriteFunction(element:any){
+
+      if(this.myCocktails.isSelected == true){
+        element["style"].color="red";
+        this.myCocktails.isSelected=true;
+      }
+
+    console.log("srce", this.myCocktails);
+    console.log("data", element);
+  // if(this.myCocktails.isSelected == true){
+  //   data["style"].color="red";
+  // }else{
+  //   data["style"].color="grey";
+  // }
+
+
 }
 }

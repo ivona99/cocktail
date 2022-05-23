@@ -1,3 +1,4 @@
+import { HomeComponent } from './home/home.component';
 import { FavoriteComponent } from './favorite/favorite.component';
 import { AlcoholicComponent } from './alcoholic/alcoholic.component';
 import { GlassComponent } from './glass/glass.component';
@@ -7,6 +8,8 @@ import { NgModule } from "@angular/core";
 import { Routes, RouterModule} from '@angular/router';
 
 const routes: Routes = [
+  { path: '', redirectTo: '/homes', pathMatch: 'full' },
+  {path: 'homes', component: HomeComponent},
   {path: 'categories', component: CategoryComponent},
   {path: 'ingredients', component: IngredientComponent},
   {path: 'glasses', component: GlassComponent},
@@ -22,4 +25,4 @@ const routes: Routes = [
 
 export class AppRoutingModule { }
 
-export const routingComponents = [CategoryComponent, IngredientComponent, GlassComponent, AlcoholicComponent, FavoriteComponent]
+export const routingComponents = [HomeComponent, CategoryComponent, IngredientComponent, GlassComponent, AlcoholicComponent, FavoriteComponent]

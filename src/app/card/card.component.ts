@@ -11,7 +11,12 @@ export class CardComponent implements OnInit {
   @Input() showCard?:boolean;
  favArray: any;
   @Input() isSelected?:boolean;
+  favorite: any= document.getElementsByClassName("fa fa-heart")[0];
+  @Output() favoriteEvent:EventEmitter<any> = new EventEmitter<any>();
 
+onHeartClick(){
+  this.favoriteEvent.emit(this.favorite);
+}
 
 
 
@@ -26,18 +31,22 @@ export class CardComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    
+    this.favoriteEvent.emit(this.favorite);
 
   }
 onSubmit(id:any){
 this.favArray = localStorage.getItem('favorites');
 let favorite: any= document.getElementsByClassName("fa fa-heart")[0];
+//this.favoriteEvent.emit(favorite);
+
+
 this.data.isSelected=false;
 console.log("je li", this.data);
 
 if(this.favArray){
   this.data.isSelected = true;
   this.favArray = JSON.parse(this.favArray);
+  this.favoriteEvent.emit(this.favorite);
 console.log("blbla", favorite);
 
 
@@ -49,7 +58,7 @@ console.log("blbla", favorite);
   }else{
     this.favArray.push(this.data);
     console.log("favorite", favorite);
-    
+
    console.log(this.data);
     console.log(this.favArray);
 
