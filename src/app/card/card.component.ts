@@ -14,10 +14,6 @@ export class CardComponent implements OnInit {
   favorite: any= document.getElementsByClassName("fa fa-heart")[0];
   @Output() favoriteEvent:EventEmitter<any> = new EventEmitter<any>();
 
-onHeartClick(){
-  this.favoriteEvent.emit(this.favorite);
-}
-
 
 
   @Output() detailEvent:EventEmitter<any> = new EventEmitter<any>();
@@ -46,7 +42,7 @@ console.log("je li", this.data);
 if(this.favArray){
   this.data.isSelected = true;
   this.favArray = JSON.parse(this.favArray);
-  this.favoriteEvent.emit(this.favorite);
+  this.favoriteEvent.emit(favorite);
 console.log("blbla", favorite);
 
 
@@ -57,6 +53,7 @@ console.log("blbla", favorite);
     this.favArray.splice(elIndex, 1);
   }else{
     this.favArray.push(this.data);
+    
     console.log("favorite", favorite);
 
    console.log(this.data);

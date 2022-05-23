@@ -68,7 +68,7 @@
   </div>
 </div> -->
 <div class="d-flex flex-wrap justify-content-center">
-  <app-card *ngFor="let category of newCategories" [data]="category" (detailEvent)="onDetail(category)" (favoriteEvent)="favoriteFunction(category)" [showCard]="showCard"></app-card>
+  <app-card *ngFor="let category of newCategories" [data]="category" (detailEvent)="onDetail(category)" (favoriteEvent)="favoriteFunction($event, category.strDrink)" [showCard]="showCard" [isSelected]="isSelected"></app-card>
  </div>
 <div class="container" *ngIf="showModal">
     <div class="modal-content" *ngFor="let newcat of details">

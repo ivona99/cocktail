@@ -23,7 +23,7 @@ export class CategoryComponent implements OnInit {
   searchResults:any;
   showCard = true;
   myCocktails: any;
-  isSelected = true;
+  isSelected?:boolean;
 
 
   constructor(
@@ -34,6 +34,8 @@ export class CategoryComponent implements OnInit {
   ngOnInit(): void {
     this.myCocktails = localStorage.getItem("favorites");
     this.myCocktails = JSON.parse(this.myCocktails);
+    console.log("kategorija niz", this.myCocktails);
+    
     this.cocktailService.getCocktailsCategory()
         .subscribe((data: any) => {
           this.categories = data.drinks;
@@ -47,6 +49,7 @@ export class CategoryComponent implements OnInit {
           console.log(this.shortCategories);
 
         })
+        
 
         // this.myCocktails.array.forEach((element:any) => {
         //   if(element.isSelected==true){
@@ -124,21 +127,27 @@ onSearch(name:any){
      })
 }
 
-favoriteFunction(element:any){
-
-      if(this.myCocktails.isSelected == true){
-        element["style"].color="red";
-        this.myCocktails.isSelected=true;
-      }
-
+favoriteFunction(data:any, str:any){
+//   return this.newCategories.filter((object1:any) => {
+//     return this.myCocktails.some((object2:any) => {
+//       if(object1.idDrink === object2.idDrink) {
+//         data["style"].color= "red";
+//       }
+//     });
+//   });
+// }
+  
+ this.myCocktails.forEach((element:any) => {
+   
+    if(element.strDrink == str){
+      data["style"].color= "red";
+      
+    }
+    console.log("Ime elementa iz favorite niza", element.strDrink);
+    console.log("Ime elementa koje prtisnem", str);
+    
+   });
     console.log("srce", this.myCocktails);
-    console.log("data", element);
-  // if(this.myCocktails.isSelected == true){
-  //   data["style"].color="red";
-  // }else{
-  //   data["style"].color="grey";
-  // }
-
-
-}
+    console.log("data", data);
+  }
 }
