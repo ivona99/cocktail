@@ -42,7 +42,7 @@ export class CategoryComponent implements OnInit {
 
           for(var i=0; i<10; i++){
             this.shortCategories.push(this.categories[i]);
-            //this._strCategory = strCategory;
+           
 
 
           }
@@ -51,16 +51,12 @@ export class CategoryComponent implements OnInit {
         })
 
 
-        // this.myCocktails.array.forEach((element:any) => {
-        //   if(element.isSelected==true){
-
-        //   }
-        // });
-        //console.log("hahaha", this.myCocktails);
+   
 
 
   }
   onSelect(category:any){
+   //iconData["style"].color= "grey";
      this.cocktailService.getCategory(category.strCategory)
      .subscribe((data:any) =>{
 
@@ -123,27 +119,15 @@ onSearch(name:any){
      })
 }
 
-favoriteFunction(data:any, str:any){
-//   return this.newCategories.filter((object1:any) => {
-//     return this.myCocktails.some((object2:any) => {
-//       if(object1.idDrink === object2.idDrink) {
-//         data["style"].color= "red";
-//       }
-//     });
-//   });
-// }
-
- this.myCocktails.forEach((element:any) => {
-
-    if(element.strDrink == str){
-      data["style"].color= "red";
-
-    }
-    console.log("Ime elementa iz favorite niza", element.strDrink);
-    console.log("Ime elementa koje prtisnem", str);
-
+favoriteFunction(){
+   this.newCategories.forEach((element:any) => {
+    this.myCocktails.forEach((elementO:any) => {
+      if(elementO.isSelected == true && elementO.idDrink == element.idDrink){
+        element.isSelected=true;
+        this.isSelected=true;
+      }
+    });
    });
-    console.log("srce", this.myCocktails);
-    console.log("data", data);
+
   }
 }

@@ -33,7 +33,7 @@ export class CardComponent implements OnInit {
 onSubmit(id:any){
 this.favArray = localStorage.getItem('favorites');
 let favorite: any= document.getElementsByClassName("fa fa-heart")[0];
-//this.favoriteEvent.emit(favorite);
+this.favoriteEvent.emit(favorite);
 
 
 this.data.isSelected=false;
@@ -46,7 +46,10 @@ if(this.favArray){
 console.log("blbla", favorite);
 
 
-  this.isSelected = !this.isSelected;
+//  this.isSelected = false;
+//  this.isSelected=!this.isSelected;
+ console.log("isSelected", this.isSelected);
+ 
 
   let elIndex = this.favArray.findIndex((element:any) => element.idDrink == id);
   if(elIndex!= -1){
@@ -57,11 +60,7 @@ console.log("blbla", favorite);
     console.log("favorite", favorite);
 
    console.log(this.data);
-    console.log(this.favArray);
-
-    // if(this.data.isSelected==true){
-    //   favorite["style"].color = "red";
-    // }
+    console.log("localStorage niz",this.favArray);
   }
 
 }
@@ -74,17 +73,6 @@ localStorage.setItem('favorites', JSON.stringify(this.favArray));
 }
 
 
-
-
-// changeColor(){
-
-//   if(this.btn.style.color == "grey"){
-//     this.btn.style.color = "red";
-
-//     } else{
-//       this.btn.style.color = "grey";
-//     }
-// }
 }
 
 

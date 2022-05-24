@@ -9,7 +9,7 @@
          <div class="center d-flex justify-content-around">
             <button (click)="onDetail()" id="myBtn">Detail
             </button>
-            <button id="btn1" (click)="onSubmit(data.idDrink)"><i class="fa fa-heart"  [style.color]="isSelected ?  'red' : 'grey'"></i></button>
+            <button id="btn1" (click)="onSubmit(data.idDrink)"><i class="fa fa-heart"  [style.color]="data.isSelected ?  'red' : 'grey'"></i></button>
           </div>
       </div>
     </div>
