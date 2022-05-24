@@ -35,7 +35,7 @@ export class CategoryComponent implements OnInit {
     this.myCocktails = localStorage.getItem("favorites");
     this.myCocktails = JSON.parse(this.myCocktails);
     console.log("kategorija niz", this.myCocktails);
-    
+
     this.cocktailService.getCocktailsCategory()
         .subscribe((data: any) => {
           this.categories = data.drinks;
@@ -49,7 +49,7 @@ export class CategoryComponent implements OnInit {
           console.log(this.shortCategories);
 
         })
-        
+
 
         // this.myCocktails.array.forEach((element:any) => {
         //   if(element.isSelected==true){
@@ -61,9 +61,6 @@ export class CategoryComponent implements OnInit {
 
   }
   onSelect(category:any){
-    //this.router.navigate(['/categories', category.strCategory ]);
-     //let strCategory = this.route1.snapshot.paramMap.get('strCategory');
-    // this._strCategory = strCategory;
      this.cocktailService.getCategory(category.strCategory)
      .subscribe((data:any) =>{
 
@@ -80,8 +77,9 @@ export class CategoryComponent implements OnInit {
         this.newCategories = data.drinks;
       }
 
-       //this.showCard = false;
+
      })
+
 
   }
   onDetail(id:any){
@@ -116,8 +114,6 @@ onCloseModal(){
 onSearch(name:any){
   this.cocktailService.getSearchName(this.searchTxt)
      .subscribe((data:any)=>{
-       //this.searches = data.drinks;
-       //console.log(this.searches);
        console.log("category", data);
        if(data && data.drinks && this.searchTxt!==''){
          this.searchResults = data.drinks;
@@ -136,16 +132,16 @@ favoriteFunction(data:any, str:any){
 //     });
 //   });
 // }
-  
+
  this.myCocktails.forEach((element:any) => {
-   
+
     if(element.strDrink == str){
       data["style"].color= "red";
-      
+
     }
     console.log("Ime elementa iz favorite niza", element.strDrink);
     console.log("Ime elementa koje prtisnem", str);
-    
+
    });
     console.log("srce", this.myCocktails);
     console.log("data", data);

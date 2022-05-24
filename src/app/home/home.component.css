@@ -1,4 +1,125 @@
 img{
   width: 100%;
+}
+/* [1] The container */
+.img-hover-zoom {
+   /* [1.1] Set it as per your need */
+  overflow: hidden; /* [1.2] Hide the overflowing of child elements */
+}
 
+/* [2] Transition property for smooth transformation of images */
+.img-hover-zoom img {
+  transition: transform .4s ease;
+}
+
+/* [3] Finally, transforming the image when container gets hovered */
+.img-hover-zoom:hover img {
+  transform: scale(1.6);
+}
+
+h1 {
+  display: flex;
+  flex-direction: row;
+}
+h1:before, h1:after{
+  content: "";
+  flex: 1 1;
+  border-bottom: 1px solid;
+  margin: auto;
+}
+h1:before {
+  margin-right: 10px
+}
+h1:after {
+  margin-left: 10px
+}
+.picture-figure{
+  margin: 0;
+}
+.horizontal-article{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: flex-start;
+  margin:0 0 4em;
+  align-items: center;
+}
+.text-card-warpper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: -70px;
+
+
+
+}
+.text-card{
+  position: relative;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  width: 90%;
+  margin-top: 40px;
+  box-shadow: 0 -6px 9px 0 rgb(0 0 0 / 7%);
+  height: 350px;
+  gap: 10px;
+
+}
+.post-type{
+  font-size: 12px;
+  width: 80px;
+  height: 30px;
+  line-height: 2;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: black;
+  display: inline-block;
+  margin-bottom: 0px;
+  transform: translateY(-50%);
+  border: black solid 3px;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+.title-text{
+  position: relative;
+  margin-top: 0 5em;
+}
+h3{
+  margin: 0 0 0.5em;
+  font-size: 24px;
+  line-height: 1.2;
+}
+.dek-text{
+  line-height: 1.3;
+  font-size: 16px;
+  max-width: 50em;
+  margin: 0 auto;
+}
+.share-links{
+  display: flex;
+  width: 120px;
+  justify-content: space-around;
+  align-items: center;
+  margin: 10px auto;
+  position: relative;
+  background-color: #d2d2d2;
+
+}
+.credit{
+  white-space: nowrap;
+  color: #858585;
+  list-style: none;
+}
+li{
+  display: list-item;
+  text-decoration: none;
+}
+a{
+  color: black;
+  text-decoration: none;
 }
