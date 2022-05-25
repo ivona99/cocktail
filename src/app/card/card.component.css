@@ -16,8 +16,8 @@
 button{
   padding: 10px 20px;
   border-radius: 12px;
-  border: 2px solid #555555;
-  background-color: #d1e0e0;
+  border:none;
+
 }
 .modal-content{
   width:600px;
@@ -33,4 +33,7 @@ button{
   text-align: center;
   border: none;
   float: right;
+}
+.card-container{
+  padding-bottom: 30px;
 }

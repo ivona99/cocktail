@@ -42,7 +42,7 @@ export class CategoryComponent implements OnInit {
 
           for(var i=0; i<10; i++){
             this.shortCategories.push(this.categories[i]);
-           
+
 
 
           }
@@ -51,7 +51,7 @@ export class CategoryComponent implements OnInit {
         })
 
 
-   
+
 
 
   }
@@ -124,7 +124,9 @@ favoriteFunction(){
     this.myCocktails.forEach((elementO:any) => {
       if(elementO.isSelected == true && elementO.idDrink == element.idDrink){
         element.isSelected=true;
-        this.isSelected=true;
+        this.isSelected=element.isSelected;
+
+
       }
     });
    });

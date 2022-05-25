@@ -1,15 +1,15 @@
 <div class="card-container" *ngIf="showCard">
   <div class="card-deck"  style="width:400px; padding:10px 15px;" >
-    <div class="card" style="border: 1px solid #555555;" >
+    <div class="card" style="   box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2); border-radius: 10px;" >
       <img class="card-img-top" src="{{data.strDrinkThumb}}" >
       <div class="card-body" style="background-color:#f0f5f5;">
         <h5 class="card-title" style="text-align:center;">{{data.strDrink}}</h5>
       </div>
-      <div class="card-footer" style="height:60px;">
+      <div class="card-footer" style="height:80px;">
+        <button id="btn1" style="float:right; background-color: none; " (click)="onSubmit(data.idDrink)"><i class="fa fa-heart"  [style.color]="data.isSelected ?  'red' : 'grey'"></i></button>
          <div class="center d-flex justify-content-around">
-            <button (click)="onDetail()" id="myBtn">Detail
-            </button>
-            <button id="btn1" (click)="onSubmit(data.idDrink)"><i class="fa fa-heart"  [style.color]="data.isSelected ?  'red' : 'grey'"></i></button>
+            <button (click)="onDetail()" id="myBtn">Detail</button>
+
           </div>
       </div>
     </div>

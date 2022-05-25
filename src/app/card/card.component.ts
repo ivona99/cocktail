@@ -47,16 +47,16 @@ console.log("blbla", favorite);
 
 
 //  this.isSelected = false;
-//  this.isSelected=!this.isSelected;
+ this.isSelected=!this.isSelected;
  console.log("isSelected", this.isSelected);
- 
+
 
   let elIndex = this.favArray.findIndex((element:any) => element.idDrink == id);
   if(elIndex!= -1){
     this.favArray.splice(elIndex, 1);
   }else{
     this.favArray.push(this.data);
-    
+
     console.log("favorite", favorite);
 
    console.log(this.data);
