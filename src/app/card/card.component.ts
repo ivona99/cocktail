@@ -9,7 +9,7 @@ export class CardComponent implements OnInit {
   @Input() data: any;
   category:any;
   @Input() showCard?:boolean;
- favArray: any;
+ favArray:any=[];
   @Input() isSelected?:boolean;
   favorite: any= document.getElementsByClassName("fa fa-heart")[0];
   @Output() favoriteEvent:EventEmitter<any> = new EventEmitter<any>();
@@ -37,7 +37,7 @@ this.favoriteEvent.emit(favorite);
 
 
 this.data.isSelected=false;
-console.log("je li", this.data);
+//console.log("je li", this.data);
 
 if(this.favArray){
   this.data.isSelected = true;
@@ -46,9 +46,11 @@ if(this.favArray){
 console.log("blbla", favorite);
 
 
-//  this.isSelected = false;
+//this.isSelected = false;
  this.isSelected=!this.isSelected;
- console.log("isSelected", this.isSelected);
+
+console.log("isSelected", this.isSelected);
+console.log("is Selected iz local storage", this.data.isSelected);
 
 
   let elIndex = this.favArray.findIndex((element:any) => element.idDrink == id);
@@ -64,13 +66,15 @@ console.log("blbla", favorite);
   }
 
 }
-if(!this.favArray){
-  this.favArray = [];
-}
+ if(!this.favArray){
+   this.favArray = [];
+   }
 localStorage.setItem('favorites', JSON.stringify(this.favArray));
-
+ //this.isSelected=!this.isSelected;
+// console.log("isSelected", this.isSelected);
 
 }
+
 
 
 }

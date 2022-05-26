@@ -20,8 +20,8 @@ isSelected = true;
     this.myCocktails = localStorage.getItem("favorites");
     this.myCocktails = JSON.parse(this.myCocktails);
     console.log("hah", this.myCocktails);
-  
- 
+
+
 
   }
 
