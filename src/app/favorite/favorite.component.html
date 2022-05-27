@@ -1,5 +1,5 @@
 
-<div class="d-flex flex-wrap justify-content-center">
+<div class="d-flex flex-wrap justify-content-center" style="padding-top:80px ;">
   <app-card *ngFor="let favorite of myCocktails" [data]="favorite"  (detailEvent)="onDetail(favorite)" [showCard]="showCard" [isSelected]="isSelected"></app-card>
 </div>
 
