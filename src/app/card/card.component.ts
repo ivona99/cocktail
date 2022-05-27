@@ -1,9 +1,14 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { AppComponent } from './../app.component';
+//import {CategoryComponent}from './category/category.component';
+import { Component, OnInit, Input, Output, EventEmitter, ChangeDetectionStrategy, ChangeDetectorRef, AfterViewChecked } from '@angular/core';
+import { CategoryComponent } from '../category/category.component';
+import { Injectable } from "@angular/core";
 
 @Component({
   selector: 'app-card',
   templateUrl: './card.component.html',
-  styleUrls: ['./card.component.css']
+  styleUrls: ['./card.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CardComponent implements OnInit {
   @Input() data: any;
@@ -24,11 +29,26 @@ export class CardComponent implements OnInit {
 
 
 
-  constructor() { }
+  constructor(private cdRef : ChangeDetectorRef) { 
+    //private cdref: ChangeDetectorRef
+   //private parent:CategoryComponent
+  }
+  /*ngAfterViewChecked() {
+   console.log("u ng after view",this.data.strDrink,this.data.isSelected);
+   this.favoriteEvent.emit(this.favorite);
+    this.cdRef.detectChanges();
+    
+  }*/
+ 
 
   ngOnInit(): void {
+    
     this.favoriteEvent.emit(this.favorite);
-
+    
+     /* setTimeout(() => {
+          this.parent.isSelected=this.isSelected;
+      });*/
+  
   }
 onSubmit(id:any){
 this.favArray = localStorage.getItem('favorites');
@@ -73,6 +93,30 @@ localStorage.setItem('favorites', JSON.stringify(this.favArray));
  //this.isSelected=!this.isSelected;
 // console.log("isSelected", this.isSelected);
 
+}
+onSub(id:any){
+  if(localStorage.getItem('favorites')===null){
+    console.log("storage is empty");
+    this.favArray = [];
+    this.favArray.push(this.data);
+    this.data.isSelected=true;
+    this.isSelected=true;
+  }else{
+    console.log("storage is not empty");
+    this.favArray = localStorage.getItem('favorites');
+    this.favArray = JSON.parse(this.favArray);
+    let elIndex = this.favArray.findIndex((element:any) => element.idDrink == id);
+    if(elIndex!= -1){
+      this.favArray.splice(elIndex, 1);
+      this.data.isSelected=false;
+      this.isSelected=false;
+    }else{
+      this.favArray.push(this.data);
+    this.data.isSelected=true;
+  this.isSelected=true;}
+
+  }
+  localStorage.setItem('favorites', JSON.stringify(this.favArray));
 }
 
 

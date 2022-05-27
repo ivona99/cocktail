@@ -120,18 +120,20 @@ onSearch(name:any){
 }
 
 favoriteFunction(){
-   this.newCategories.forEach((element:any) => {
-    this.myCocktails.forEach((elementO:any) => {
-      if(elementO.isSelected == true && elementO.idDrink == element.idDrink){
-        element.isSelected=true;
-
-        this.isSelected=element.isSelected;
-
-
-
-      }
-    });
-   });
-   console.log("u kategoriji isSelected", this.isSelected);
+  if(localStorage.getItem('favorites')!==null){
+    this.newCategories.forEach((element:any) => {
+      this.myCocktails.forEach((elementO:any) => {
+        if(elementO.isSelected == true && elementO.idDrink == element.idDrink){
+          element.isSelected=true;
+  
+          this.isSelected=element.isSelected;
+  
+  
+  
+        }
+      });
+     });
+  }
+   //console.log("u kategoriji isSelected", this.isSelected);
   }
 }
