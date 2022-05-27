@@ -9,7 +9,6 @@
   <div class="header-box">
     <img src="https://www.logoarena.com/contestimages/public_new/3411/thumb_74_1376870761_cocktailhour01.jpg" style="padding-left:0px; border:#394a62 solid 4px;  border-radius:5px;">
   </div>
-  <!--<div class="collapse navbar-collapse" id="navbarNavDropdown">-->
     <ul class="navbar-nav">
       <div class="d-flex align-content-around flex-wrap justify-content-between">
         <li class="nav-item active" >
@@ -27,28 +26,18 @@
       <li class="nav-item">
         <a routerLink="/alcoholics" routerLinkActive="active" class="nav-link">Alcoholic</a>
       </li>
-      <li class="nav-item">
-        <a routerLink="/favorites" routerLinkActive="active" class="nav-link">Favorite</a>
+      <li class="nav-item d-flex">
+        <a routerLink="/favorites" routerLinkActive="active" class="nav-link">Favorite
+
+        </a>
+        <button type="button" class="icon-button">
+          <span class="material-icons">favorite</span>
+          <span class="icon-button__badge">2</span>
+         </button>
       </li>
     </div>
     </ul>
   </div>
-    <!-- <app-search *ngIf="showSearch"></app-search> -->
-  <!--</div>-->
-
-  <!-- <div class="search-container" *ngIf="showSearch">
-    <div *ngFor="let search of searches">
-    <form>
-      <input type="text" class="search-click" name="" placeholder="search here..." />
-      <button (click)="onSearch(search)" class="search-button" type="submit"><i class="fa fa-search"></i></button>
-    </form>
-    <p>{{search.strDrink}}</p>
-  </div>
-  </div> -->
-
 </nav>
-
-
-
 <router-outlet></router-outlet>
 

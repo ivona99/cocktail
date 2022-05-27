@@ -26,10 +26,10 @@ export class CardComponent implements OnInit {
     this.detailEvent.emit();
   }
 
+count = 0;
 
 
-
-  constructor(private cdRef : ChangeDetectorRef) { 
+  constructor(private cdRef : ChangeDetectorRef) {
     //private cdref: ChangeDetectorRef
    //private parent:CategoryComponent
   }
@@ -37,18 +37,18 @@ export class CardComponent implements OnInit {
    console.log("u ng after view",this.data.strDrink,this.data.isSelected);
    this.favoriteEvent.emit(this.favorite);
     this.cdRef.detectChanges();
-    
+
   }*/
- 
+
 
   ngOnInit(): void {
-    
+
     this.favoriteEvent.emit(this.favorite);
-    
+
      /* setTimeout(() => {
           this.parent.isSelected=this.isSelected;
       });*/
-  
+
   }
 onSubmit(id:any){
 this.favArray = localStorage.getItem('favorites');
