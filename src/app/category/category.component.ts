@@ -24,7 +24,10 @@ export class CategoryComponent implements OnInit {
   showCard = true;
   myCocktails: any;
   isSelected?:boolean;
-
+// @Output() notifyGrandParent:EventEmitter<any> = new EventEmitter<any>();
+// countEvent(counter:any){
+//   this.notifyGrandParent.emit(counter);
+// }
 
   constructor(
     private cocktailService: CocktailService,
@@ -125,11 +128,11 @@ favoriteFunction(){
       this.myCocktails.forEach((elementO:any) => {
         if(elementO.isSelected == true && elementO.idDrink == element.idDrink){
           element.isSelected=true;
-  
+
           this.isSelected=element.isSelected;
-  
-  
-  
+
+
+
         }
       });
      });

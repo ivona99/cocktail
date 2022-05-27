@@ -1,5 +1,5 @@
 import { CocktailService } from './../cocktail.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Output,EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-favorite',
@@ -12,6 +12,7 @@ export class FavoriteComponent implements OnInit {
   public details:any =[];
   showModal?:boolean;
 isSelected = true;
+
 
 
   constructor(private cocktailService: CocktailService) { }

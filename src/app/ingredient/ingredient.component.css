@@ -2,7 +2,7 @@ button{
   padding: 10px 20px;
   border-radius: 12px;
   border: 2px solid #555555;
-  background-color: #d1e0e0;
+  background-color: #f2f2f2;
 }
 
 .center {
@@ -66,8 +66,8 @@ hr{
    font-size: 17px;
    cursor: pointer;
    margin-right: auto;
-   background: #d1e0e0;
-   border: 2px solid #555555;
+   background: transparent;
+   border: none;
    border-radius: 10px;
    width: 60px;
    height: 50px;
