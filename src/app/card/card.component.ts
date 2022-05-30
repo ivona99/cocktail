@@ -12,6 +12,8 @@ import { Injectable } from "@angular/core";
 })
 export class CardComponent implements OnInit {
 
+  @Output() countEvent:EventEmitter<any> = new EventEmitter<any>();
+
   counter = 0;
 
   @Input() data: any;
@@ -28,7 +30,7 @@ export class CardComponent implements OnInit {
   favorite: any= document.getElementsByClassName("fa fa-heart")[0];
   @Output() favoriteEvent:EventEmitter<any> = new EventEmitter<any>();
 
-//@Output() handleCount:EventEmitter<any> = new EventEmitter<any>();
+
 
 
 
@@ -96,7 +98,6 @@ onSub(id:any){
     this.favArray.push(this.data);
     this.data.isSelected=true;
     this.isSelected=true;
-   // count++;
   }else{
     console.log("storage is not empty");
     this.favArray = localStorage.getItem('favorites');
@@ -106,12 +107,24 @@ onSub(id:any){
       this.favArray.splice(elIndex, 1);
       this.data.isSelected=false;
       this.isSelected=false;
-     // count--;
     }else{
       this.favArray.push(this.data);
       this.data.isSelected=true;
       this.isSelected=true;
+      this.counter++;
+
     }
+    if(this.data.isSelected===true){
+      this.counter = this.favArray.length;
+      console.log("counter u card", this.counter);
+      this.countEvent.emit(this.counter);
+    }else{
+      this.counter = this.favArray.length;
+      console.log("counter u card", this.counter);
+      this.countEvent.emit(this.counter);
+      
+    }
+  
 
   }
   //this.handleCount.emit(count);

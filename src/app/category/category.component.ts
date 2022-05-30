@@ -1,3 +1,4 @@
+import { SharedService } from './../shared.service';
 import { CocktailService } from './../cocktail.service';
 import { Component, OnInit, Input,EventEmitter, Output} from '@angular/core';
 import { Router } from '@angular/router';
@@ -10,8 +11,6 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./category.component.css']
 })
 export class CategoryComponent implements OnInit {
-
-
   public categories: any =[];
   public shortCategories:any =[];
   public _strCategory:any;
@@ -24,13 +23,11 @@ export class CategoryComponent implements OnInit {
   showCard = true;
   myCocktails: any;
   isSelected?:boolean;
-// @Output() notifyGrandParent:EventEmitter<any> = new EventEmitter<any>();
-// countEvent(counter:any){
-//   this.notifyGrandParent.emit(counter);
-// }
+counter:any;
 
   constructor(
     private cocktailService: CocktailService,
+    private _sharedService: SharedService,
     private router:Router,
     private route1: ActivatedRoute) { }
 
@@ -52,12 +49,8 @@ export class CategoryComponent implements OnInit {
           console.log(this.shortCategories);
 
         })
-
-
-
-
-
-  }
+       
+}
   onSelect(category:any){
    //iconData["style"].color= "grey";
      this.cocktailService.getCategory(category.strCategory)
@@ -139,4 +132,10 @@ favoriteFunction(){
   }
    //console.log("u kategoriji isSelected", this.isSelected);
   }
+
+  parentFunction(data:any){
+    console.log("counter je ", data);
+    this.counter = data;
+    this._sharedService.emitChange(this.counter);
+    }
 }

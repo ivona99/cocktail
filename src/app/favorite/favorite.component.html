@@ -1,6 +1,6 @@
 
 <div class="d-flex flex-wrap justify-content-center" style="padding-top:80px ;">
-  <app-card *ngFor="let favorite of myCocktails" [data]="favorite"  (detailEvent)="onDetail(favorite)" [showCard]="showCard" [isSelected]="isSelected"></app-card>
+  <app-card *ngFor="let favorite of myCocktails" [data]="favorite" (countEvent)="parentFunction($event)" (detailEvent)="onDetail(favorite)" [showCard]="showCard" [isSelected]="isSelected"></app-card>
 </div>
 
 <div class="container" *ngIf="showModal">

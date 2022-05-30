@@ -1,3 +1,4 @@
+import { SharedService } from './../shared.service';
 import { CocktailService } from './../cocktail.service';
 import { Component, OnInit,Output,EventEmitter } from '@angular/core';
 
@@ -12,10 +13,12 @@ export class FavoriteComponent implements OnInit {
   public details:any =[];
   showModal?:boolean;
 isSelected = true;
+  counter: any;
 
 
 
-  constructor(private cocktailService: CocktailService) { }
+  constructor(private cocktailService: CocktailService,
+    private _sharedService: SharedService) { }
 
   ngOnInit(): void {
     this.myCocktails = localStorage.getItem("favorites");
@@ -44,6 +47,12 @@ isSelected = true;
   onCloseModal(){
     this.details = null;
     this.showModal =false;
+  }
+
+  parentFunction(data:any){
+    console.log("counter je ", data);
+    this.counter = data;
+    this._sharedService.emitChange(this.counter);
   }
 
 
