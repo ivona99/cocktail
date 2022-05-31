@@ -8,12 +8,20 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  imageSrc = 'src/assets/images/cocktail.png' 
   title = 'coctail';
   showSearch?:boolean;
   public searches: any=[];
   myCocktails: any;
   counterFav:any;
- // count:any;
+  public categories: any =[];
+  public shortCategories:any =[];
+  public ingredients:any = [];
+  public shortIngredients:any = [];
+  public glasses:any = [];
+  public shortGlasses:any=[];
+  public alcoholics:any = [];
+  public newAlcoholics:any=[];
 
 
 constructor(private cocktailService:CocktailService,
@@ -28,7 +36,43 @@ ngOnInit(): void {
     this.counterFav = data;
           console.log(data);
         })
+//Navbar dropdown for category
+        this.cocktailService.getCocktailsCategory()
+        .subscribe((data: any) => {
+          this.categories = data.drinks;
 
+          for(var i=0; i<10; i++){
+            this.shortCategories.push(this.categories[i]);
+          }
+          console.log(this.shortCategories);
+         })
+
+//Navbar dropdown for Ingredients
+        this.cocktailService.getCocktailsIngredient()
+        .subscribe((data:any) =>{
+          this.ingredients = data.drinks;
+          for(var i=0; i<10;i++){
+            this.shortIngredients.push(this.ingredients[i]);
+            console.log(this.shortIngredients);
+          }
+        })
+//Navbar dropdown for glasses
+        this.cocktailService.getCocktailsGlass()
+        .subscribe((data:any) =>{
+          this.glasses = data.drinks;
+          for(var i=0; i<10; i++){
+            this.shortGlasses.push(this.glasses[i]);
+            console.log(this.shortGlasses);
+          }
+       })
+
+//Navbar dropdown for alcoholic
+this.cocktailService.getCocktailsAlcoholic()
+.subscribe((data:any) =>{
+this.alcoholics = data.drinks;
+console.log(this.alcoholics);
+})
+    
 }
 
 

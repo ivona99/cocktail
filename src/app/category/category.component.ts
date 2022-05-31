@@ -42,9 +42,6 @@ counter:any;
 
           for(var i=0; i<10; i++){
             this.shortCategories.push(this.categories[i]);
-
-
-
           }
           console.log(this.shortCategories);
 
@@ -52,7 +49,6 @@ counter:any;
        
 }
   onSelect(category:any){
-   //iconData["style"].color= "grey";
      this.cocktailService.getCategory(category.strCategory)
      .subscribe((data:any) =>{
 
@@ -130,7 +126,6 @@ favoriteFunction(){
       });
      });
   }
-   //console.log("u kategoriji isSelected", this.isSelected);
   }
 
   parentFunction(data:any){

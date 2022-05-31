@@ -5,6 +5,7 @@ import { Subject } from 'rxjs';
   providedIn: 'root'
 })
 export class SharedService {
+
   // Observable string sources
   private emitChangeSource = new Subject<any>();
  // Observable string streams
@@ -13,6 +14,8 @@ export class SharedService {
   emitChange(change:any){
     this.emitChangeSource.next(change);
   }
+
+
 
   constructor() { }
 }

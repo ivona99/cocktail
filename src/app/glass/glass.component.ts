@@ -1,3 +1,4 @@
+import { SharedService } from './../shared.service';
 import { CocktailService } from './../cocktail.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
@@ -16,8 +17,12 @@ export class GlassComponent implements OnInit {
   public details:any =[];
   showModal?:boolean;
   showCard = true;
+  myCocktails: any;
+  isSelected?:boolean;
+counter:any;
 
   constructor(private cocktailService: CocktailService,
+   private _sharedService: SharedService,
     private router:Router,
     private route1: ActivatedRoute) { }
 
@@ -35,9 +40,15 @@ export class GlassComponent implements OnInit {
   }
 
   onSelect(glass:any){
+    this.myCocktails = localStorage.getItem("favorites");
+    this.myCocktails = JSON.parse(this.myCocktails);
+    console.log("glasses niz", this.myCocktails);
     this.cocktailService.getGlass(glass.strGlass)
         .subscribe((data:any)=>{
          this.newGlasses = data.drinks;
+         this.newGlasses.forEach(function (element:any) {
+          element.isSelected =false;
+        });
          console.log(this.newGlasses);
         })
 
@@ -70,5 +81,28 @@ onCloseModal(){
   this.details = null;
   this.showModal =false;
 }
+
+favoriteFunction(){
+  if(localStorage.getItem('favorites')!==null){
+    this.newGlasses.forEach((element:any) => {
+      this.myCocktails.forEach((elementO:any) => {
+        if(elementO.isSelected == true && elementO.idDrink == element.idDrink){
+          element.isSelected=true;
+
+          this.isSelected=element.isSelected;
+
+
+
+        }
+      });
+     });
+  }
+   //console.log("u kategoriji isSelected", this.isSelected);
+  }
+  parentFunction(data:any){
+    console.log("counter je ", data);
+    this.counter = data;
+    this._sharedService.emitChange(this.counter);
+    }
 
 }

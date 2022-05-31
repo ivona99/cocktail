@@ -3,32 +3,9 @@
     <button (click)="onSelect(alcoholic)" type="button" class="btn btn-light">{{alcoholic.strAlcoholic}}</button>
   </div>
 </div>
-<!-- <div *ngFor="let newalc of newAlcoholics" class="container">
-  <div class="container-header">
-    <h5>{{newalc.strDrink}}</h5>
-    <div class="container-body">
-      <img src="{{newalc.strDrinkThumb}}">
-    </div>
-  </div>
-</div> -->
 
-<!-- <div class="card-container">
-  <div class="card-deck"  style="width:400px; padding:10px 15px;" *ngFor="let newalc of newAlcoholics">
-    <div class="card" style="border: 1px solid #555555;">
-      <img class="card-img-top" src="{{newalc.strDrinkThumb}}" >
-      <div class="card-body" style="background-color:#f0f5f5;">
-        <h5 class="card-title" style="text-align:center;">{{newalc.strDrink}}</h5>
-      </div>
-      <div class="card-footer" style="height:60px;">
-        <div class="center">
-          <button (click)="onDetail(newalc)" id="myBtn">Detail</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</div> -->
 <div class="d-flex flex-wrap justify-content-center">
-  <app-card *ngFor="let alcoholic of newAlcoholics" [data]="alcoholic" (detailEvent)="onDetail(alcoholic)" [showCard]="showCard"></app-card>
+  <app-card *ngFor="let alcoholic of newAlcoholics" [data]="alcoholic" (detailEvent)="onDetail(alcoholic)" (countEvent)="parentFunction($event)" (favoriteEvent)="favoriteFunction()" [showCard]="showCard" [isSelected]="isSelected"></app-card>
  </div>
 
 <div class="container" *ngIf="showModal">

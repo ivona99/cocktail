@@ -5,26 +5,51 @@
 </header> -->
 
 <nav class="navbar navbar-expand-lg">
-  <div class="container-all">
+  <div class="container-all" style="padding:0px 20px ;">
   <div class="header-box">
-    <img src="https://www.logoarena.com/contestimages/public_new/3411/thumb_74_1376870761_cocktailhour01.jpg" style="padding-left:0px; border:#394a62 solid 4px;  border-radius:5px;">
+    <a routerLink="/homes" routerLinkActive="active">
+    <img src="assets/cocktail_logo.jpeg" style="padding-left:0px; height: 60px; width: 50px;"></a>
+  <a routerLink="/homes" routerLinkActive="active" style="text-decoration:none ; color:black;"><h2>Cocktail hour</h2></a>  
   </div>
     <ul class="navbar-nav">
       <div class="d-flex align-content-around flex-wrap justify-content-between">
         <li class="nav-item active" >
-          <a routerLink="/homes" routerLinkActive="active" class="nav-link">Home <span class="sr-only"></span></a>
+          <a routerLink="/homes" routerLinkActive="active" class="nav-link">Home <span class="sr-only"></span>
+          </a>
         </li>
       <li class="nav-item active" >
-        <a routerLink="/categories" routerLinkActive="active" class="nav-link">Category <span class="sr-only"></span></a>
+        <div class="dropdown">
+         <a routerLink="/categories" routerLinkActive="active" class="nav-link">Category <span class="sr-only"></span></a>
+        
+          <div class="dropdown-content" >
+           <a *ngFor="let cat of shortCategories">{{cat.strCategory}}</a>
+          </div>
+        </div>
+     
       </li>
       <li class="nav-item">
-        <a routerLink="/ingredients" routerLinkActive="active" class="nav-link">Ingredients</a>
+        <div class="dropdown">
+          <a routerLink="/ingredients" routerLinkActive="active" class="nav-link">Ingredients</a>
+           <div class="dropdown-content" >
+            <a *ngFor="let ingredient of shortIngredients">{{ingredient.strIngredient1}}</a>
+           </div>
+         </div>
       </li>
       <li class="nav-item">
-        <a routerLink="/glasses" routerLinkActive="active" class="nav-link">Glass</a>
+        <div class="dropdown">
+          <a routerLink="/glasses" routerLinkActive="active" class="nav-link">Glass</a>
+           <div class="dropdown-content" >
+            <a *ngFor="let glass of shortGlasses">{{glass.strGlass}}</a>
+           </div>
+         </div>
       </li>
       <li class="nav-item">
-        <a routerLink="/alcoholics" routerLinkActive="active" class="nav-link">Alcoholic</a>
+        <div class="dropdown">
+          <a routerLink="/alcoholics" routerLinkActive="active" class="nav-link">Alcoholic</a>
+           <div class="dropdown-content" >
+            <a *ngFor="let alcoholic of alcoholics">{{alcoholic.strAlcoholic}}</a>
+           </div>
+         </div>
       </li>
       <li class="nav-item d-flex">
         <a routerLink="/favorites" routerLinkActive="active" class="nav-link">Favorite

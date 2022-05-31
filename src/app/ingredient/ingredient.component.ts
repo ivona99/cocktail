@@ -1,3 +1,4 @@
+import { SharedService } from './../shared.service';
 import { CocktailService } from './../cocktail.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -16,10 +17,19 @@ export class IngredientComponent implements OnInit {
   searchTxt: any = '';
   searchResults:any;
   showCard = true;
+  counter:any;
+  isSelected?:boolean;
+  myCocktails: any;
 
-  constructor(private cocktailService: CocktailService) { }
+
+  constructor(private cocktailService: CocktailService,
+    private _sharedService: SharedService) { }
 
   ngOnInit(): void {
+    this.myCocktails = localStorage.getItem("favorites");
+    this.myCocktails = JSON.parse(this.myCocktails);
+    console.log("sastojci niz", this.myCocktails);
+
     this.cocktailService.getCocktailsIngredient()
         .subscribe((data:any) =>{
           this.ingredients = data.drinks;
@@ -31,14 +41,15 @@ export class IngredientComponent implements OnInit {
         })
   }
   onSelect(ingredient:any){
-    //this.router.navigate(['/categories', category.strCategory ]);
-     //let strCategory = this.route1.snapshot.paramMap.get('strCategory');
-    // this._strCategory = strCategory;
      this.cocktailService.getIngredient(ingredient.strIngredient1)
      .subscribe((data:any) =>{
        this.newIngredients = data.drinks;
+       this.newIngredients.forEach(function (element:any) {
+        element.isSelected =false;
+      });
 
        console.log(this.newIngredients);
+
        if(this.showCard ===  false){
         this.searchResults = null;
         this.showCard = true;
@@ -90,4 +101,28 @@ onSearch(name:any){
        //console.log(this.searches);
      })
 }
+
+favoriteFunction(){
+  if(localStorage.getItem('favorites')!==null){
+    this.newIngredients.forEach((element:any) => {
+      this.myCocktails.forEach((elementO:any) => {
+        if(elementO.isSelected == true && elementO.idDrink == element.idDrink){
+          element.isSelected=true;
+
+          this.isSelected=element.isSelected;
+
+
+
+        }
+      });
+     });
+  }
+   //console.log("u kategoriji isSelected", this.isSelected);
+  }
+
+parentFunction(data:any){
+  console.log("counter je ", data);
+  this.counter = data;
+  this._sharedService.emitChange(this.counter);
+  }
 }

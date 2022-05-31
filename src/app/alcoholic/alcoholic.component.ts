@@ -1,3 +1,4 @@
+import { SharedService } from './../shared.service';
 import { CocktailService } from './../cocktail.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -12,11 +13,18 @@ export class AlcoholicComponent implements OnInit {
   public details:any =[];
   showModal?:boolean;
   showCard = true;
+  myCocktails: any;
+  isSelected?:boolean;
+counter:any;
 
 
-  constructor(private cocktailService: CocktailService) { }
+  constructor(private cocktailService: CocktailService,
+    private _sharedService:SharedService) { }
 
   ngOnInit(): void {
+    this.myCocktails = localStorage.getItem("favorites");
+    this.myCocktails = JSON.parse(this.myCocktails);
+    console.log("alkohol niz", this.myCocktails);
     this.cocktailService.getCocktailsAlcoholic()
         .subscribe((data:any) =>{
         this.alcoholics = data.drinks;
@@ -25,12 +33,12 @@ export class AlcoholicComponent implements OnInit {
   }
 
   onSelect(alcoholic:any){
-    //this.router.navigate(['/categories', category.strCategory ]);
-     //let strCategory = this.route1.snapshot.paramMap.get('strCategory');
-    // this._strCategory = strCategory;
      this.cocktailService.getAlcoholic(alcoholic.strAlcoholic)
      .subscribe((data:any) =>{
        this.newAlcoholics = data.drinks;
+       this.newAlcoholics.forEach(function (element:any) {
+        element.isSelected =false;
+      });
 
        console.log(this.newAlcoholics);
      })
@@ -50,20 +58,35 @@ export class AlcoholicComponent implements OnInit {
             }
           }
 
-
-
-    //     this.details.forEach(function(obj:any) {
-    //       if (obj.strInstructions === "") {
-    //           obj.strInstructions = "There is no content to show!"
-    //       }
-    //   });
-    // console.log(this.details);
-
          })
   }
 onCloseModal(){
   this.details = null;
   this.showModal =false;
 }
+
+favoriteFunction(){
+  if(localStorage.getItem('favorites')!==null){
+    this.newAlcoholics.forEach((element:any) => {
+      this.myCocktails.forEach((elementO:any) => {
+        if(elementO.isSelected == true && elementO.idDrink == element.idDrink){
+          element.isSelected=true;
+
+          this.isSelected=element.isSelected;
+
+
+
+        }
+      });
+     });
+  }
+   //console.log("u kategoriji isSelected", this.isSelected);
+  }
+  
+  parentFunction(data:any){
+    console.log("counter je ", data);
+    this.counter = data;
+    this._sharedService.emitChange(this.counter);
+    }
 
 }
