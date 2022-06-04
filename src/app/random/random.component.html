@@ -1,0 +1,29 @@
+<!-- <div class="d-flex flex-wrap justify-content-center">
+    <app-card *ngFor="let rand of randomArray" [data]="rand" (countEvent)="parentFunction($event)" (detailEvent)="onDetail(rand)" [showCard]="showCard" [isSelected]="isSelected"></app-card>
+</div>-->
+
+<div>
+  <p>{{selected_card}}</p>
+<div class="d-flex flex-wrap justify-content-center">
+    <app-card  [data]="selected_card_1" (countEvent)="parentFunction($event)" (detailEvent)="onDetail(selected_card_1)" [showCard]="showCard" [isSelected]="isSelected"></app-card>
+</div>
+  <button (click)="getRandomCocktail()" id="btnRand">Random</button>
+</div>
+
+<div class="container" *ngIf="showModal">
+  <div class="modal-content" *ngFor="let newcat of details">
+    <div  class="d-flex justify-content-end">
+      <button class="close_button" (click)="onCloseModal()" style="font-size:30px; cursor: pointer;" id="close">&times;</button>
+    </div>
+  <div class="header">
+  <h5 style="text-align:center;">{{newcat.strDrink}}</h5>
+</div>
+<hr>
+<div class="body">
+  <br>
+  <p style="text-align:center;">{{newcat.strInstructions}}</p>
+</div>
+<div class="modal-footer" style="padding: 8px 16px;">
+</div>
+  </div>
+</div> 

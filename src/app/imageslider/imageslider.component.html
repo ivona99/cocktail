@@ -1,0 +1,12 @@
+<div>
+<main>
+  <span (click)="leftArrow()">❮</span>
+   <section>
+    <div class="sliderImages" *ngFor="let image of imgArray ">
+      <img src="{{image}}" style="width:400px ; height:400px">
+    </div>
+   </section>
+  <span (click)="rightArrow()">❯</span>
+</main>
+</div>
+

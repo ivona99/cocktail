@@ -1,6 +1,8 @@
+import { ActivatedRoute } from '@angular/router';
 import { SharedService } from './shared.service';
 import { CocktailService } from './cocktail.service';
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -22,10 +24,16 @@ export class AppComponent {
   public shortGlasses:any=[];
   public alcoholics:any = [];
   public newAlcoholics:any=[];
+  public newCategories:any=[];
+  bezveze: any;
+ 
+ 
 
 
 constructor(private cocktailService:CocktailService,
-  private _sharedService:SharedService){}
+  private _sharedService:SharedService,
+  private route: ActivatedRoute,
+  private router: Router){}
 
 ngOnInit(): void {
  this.myCocktails = localStorage.getItem("favorites");
@@ -72,6 +80,8 @@ this.cocktailService.getCocktailsAlcoholic()
 this.alcoholics = data.drinks;
 console.log(this.alcoholics);
 })
+
+
     
 }
 
@@ -84,23 +94,26 @@ console.log(this.alcoholics);
          console.log(this.searches);
        })
   }
-  // grandmaHandleClick(event:any){
 
-  // }
-//   onCount(count:any){
-//     this.myCocktails = localStorage.getItem("favorites");
-//     this.myCocktails = JSON.parse(this.myCocktails);
-//     console.log("hah", this.myCocktails);
-//     this.count = this.myCocktails.length;
-
-// console.log("niz iz localstorage iz app", this.myCocktails);
-
-// console.log("count je ", count);
-
-
-//   }
 grandParent(data:any){
   console.log("grandma knows you clicked", data);
 }
+
+onSelect(category:any){
+  this.router.navigate(['/categories', category.strCategory])
+
+  this.cocktailService.getCategory(category.strCategory)
+  .subscribe((data:any) =>{
+   this.newCategories = data.drinks;
+   this.newCategories.forEach(function (element:any) {
+     element.isSelected =false;
+
+   });
+
+    console.log(this.newCategories);
+
+})
+}
+
 
 }

@@ -1,0 +1,39 @@
+.container{
+    position: fixed;
+    display: block;
+    max-width: unset;
+    top: 0%;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+    overflow: auto;
+  
+  }
+  .modal-content{
+    width:600px;
+    height:400px;
+    margin: auto;
+    transform: translate(0%, 50%);
+  }
+  
+  .close_button{
+    background-color:#fff;
+    height: 50px;
+    width: 50px;
+    text-align: center;
+    border: none;
+    float: right;
+  }
+  p{
+    height: 230px;
+  
+  }
+  hr{
+    margin: 0%;
+  }
+  .body{
+    background-color: #d1e0e0;
+  
+  }
+  

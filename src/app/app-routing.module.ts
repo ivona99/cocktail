@@ -1,3 +1,5 @@
+import { CardComponent } from './card/card.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { HomeComponent } from './home/home.component';
 import { FavoriteComponent } from './favorite/favorite.component';
 import { AlcoholicComponent } from './alcoholic/alcoholic.component';
@@ -10,11 +12,13 @@ import { Routes, RouterModule} from '@angular/router';
 const routes: Routes = [
   { path: '', redirectTo: '/homes', pathMatch: 'full' },
   {path: 'homes', component: HomeComponent},
-  {path: 'categories', component: CategoryComponent},
+  {path: 'categories/:category', component:CategoryComponent},
+ 
   {path: 'ingredients', component: IngredientComponent},
   {path: 'glasses', component: GlassComponent},
   {path: 'alcoholics', component: AlcoholicComponent},
-  {path: 'favorites', component: FavoriteComponent}
+  {path: 'favorites', component: FavoriteComponent},
+  {path: '**', component: PageNotFoundComponent}
 
 ];
 
@@ -25,4 +29,4 @@ const routes: Routes = [
 
 export class AppRoutingModule { }
 
-export const routingComponents = [HomeComponent, CategoryComponent, IngredientComponent, GlassComponent, AlcoholicComponent, FavoriteComponent]
+export const routingComponents = [HomeComponent,CardComponent, CategoryComponent, IngredientComponent, GlassComponent, AlcoholicComponent, FavoriteComponent,  PageNotFoundComponent]

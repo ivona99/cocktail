@@ -44,6 +44,9 @@ getSearchIngredient(ing:any){
   return this.http.get("https://www.thecocktaildb.com/api/json/v1/1/search.php?i=" +ing);
 }
 getHome(){
-  return this.http.get("https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=Ordinary_Drink");
+  return this.http.get("https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=Cocktail");
+}
+getRandom(){
+  return this.http.get("https://www.thecocktaildb.com/api/json/v1/1/random.php");
 }
 }

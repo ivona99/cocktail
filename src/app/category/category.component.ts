@@ -13,7 +13,6 @@ import { ActivatedRoute } from '@angular/router';
 export class CategoryComponent implements OnInit {
   public categories: any =[];
   public shortCategories:any =[];
-  public _strCategory:any;
   public newCategories:any=[];
   public details:any =[];
   showModal?:boolean;
@@ -29,7 +28,7 @@ counter:any;
     private cocktailService: CocktailService,
     private _sharedService: SharedService,
     private router:Router,
-    private route1: ActivatedRoute) { }
+    private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.myCocktails = localStorage.getItem("favorites");
@@ -46,30 +45,36 @@ counter:any;
           console.log(this.shortCategories);
 
         })
+        // this.route.paramMap
+        // .subscribe(params =>{
+        //   // let name = params.get('category');
+        //   console.log("name of category in route", params);
+          
+        // });
+  
        
 }
   onSelect(category:any){
+    this.router.navigate(['/categories', category.strCategory])
      this.cocktailService.getCategory(category.strCategory)
      .subscribe((data:any) =>{
+   
 
        this.newCategories = data.drinks;
       this.newCategories.forEach(function (element:any) {
         element.isSelected =false;
+
       });
 
        console.log(this.newCategories);
-
+   
       if(this.showCard ===  false){
         this.searchResults = null;
         this.showCard = true;
         this.newCategories = data.drinks;
       }
-
-
-     })
-
-
-  }
+ })
+}
   onDetail(id:any){
     this.cocktailService.getDetail(id.idDrink)
          .subscribe((data:any)=>{

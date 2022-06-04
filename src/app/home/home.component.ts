@@ -8,23 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  public homeDrinks:any=[];
-  homeDrinksN: any = [];
-
-  constructor(private cocktailService: CocktailService) { }
+  autoSlide = true;
+ 
+ constructor(private cocktailService: CocktailService) { }
 
   ngOnInit(): void {
-    this.cocktailService.getHome()
-    .subscribe((data:any)=>{
-
-        this.homeDrinks = data.drinks;
-        for ( var i=0;i<3;i++){
-          this.homeDrinksN.push(this.homeDrinks[i]);
-        }
-
-
-    })
+   
   }
+
 
 
 openSocialNetwork(network:string){
@@ -39,4 +30,10 @@ break;
       break;
   }
 }
+
+
+
 }
+
+
+

@@ -10,6 +10,9 @@ import { SearchComponent } from './search/search.component';
 import { CardComponent } from './card/card.component';
 import { FavoriteComponent } from './favorite/favorite.component';
 import { HomeComponent } from './home/home.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { ImagesliderComponent } from './imageslider/imageslider.component';
+import { RandomComponent } from './random/random.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,7 +20,10 @@ import { HomeComponent } from './home/home.component';
     SearchComponent,
     CardComponent,
     FavoriteComponent,
-    HomeComponent
+    HomeComponent,
+    PageNotFoundComponent,
+    ImagesliderComponent,
+    RandomComponent
   ],
   imports: [
     BrowserModule,

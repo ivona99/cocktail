@@ -17,7 +17,7 @@ export class CardComponent implements OnInit {
   counter = 0;
 
   @Input() data: any;
-  category:any;
+  
   @Output() detailEvent:EventEmitter<any> = new EventEmitter<any>();
   onDetail(){
     this.detailEvent.emit();
