@@ -36,19 +36,39 @@ button{
 }
 .card-container{
   padding-bottom: 30px;
+  padding-top: 20px;
 }
 .card{
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
-  border-radius: 10px;
+   width: 350px;
+  -webkit-transition: 1.0s;
+  /* border: none; */
 }
+
 .card:hover {
+  -webkit-transform: scale(1.1, 1.05);
+}
+/* .card:hover {
   transform: scale(1.1);
   box-shadow: 0 10px 40px 0 rgba(0, 0, 0, 0.4);
   z-index: 3;
 
 
-}
+} */
 .card-deck{
-  width:400px;
-  padding:10px 15px;
+  width:380px;
+  height: 550px;
+  /* background-color:  	 #f0f5f5; */
+  background-image: url("https://img.rawpixel.com/s3fs-private/rawpixel_images/website_content/rm314-adj-04-a_1.jpg?w=800&dpr=1&fit=default&crop=default&q=65&vib=3&con=3&usm=15&bg=F4F4F3&ixlib=js-2.2.1&s=8e556d33039d4ba6e9c5df335a7515ef");
+  border-radius: 10px;
+  margin-left: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+
+}
+.card-body{
+  /* background-color:#f0f5f5; */
+  background: url("https://img.rawpixel.com/s3fs-private/rawpixel_images/website_content/rm314-adj-04-a_1.jpg?w=800&dpr=1&fit=default&crop=default&q=65&vib=3&con=3&usm=15&bg=F4F4F3&ixlib=js-2.2.1&s=8e556d33039d4ba6e9c5df335a7515ef");
+
 }
