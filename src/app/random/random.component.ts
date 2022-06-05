@@ -9,17 +9,33 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RandomComponent implements OnInit {
 //   randomArray:any = [];
-  showCard = true;
+  showCard = false;
   public details:any =[];
   showModal?:boolean;
 isSelected = true;
 counter: any;
-random_index:any;
+
 category_Array:any =[];
+random_index:any;
 selected_card: any;
 card_Array:any=[];
 random_index_1: any;
 selected_card_1: any;
+
+ingredient_Array:any =[];
+ingredient_index: any;
+card_Array_1: any =[];
+ingredient_card: any;
+ingredient_index_1: any;
+ingredient_card_1: any;
+
+glass_Array:any=[];
+  glass_index: any;
+  glass_card: any;
+  glass_index_1: any;
+  glass_card_1: any;
+  
+  
 
   constructor(private cocktailService: CocktailService,
     private _sharedService: SharedService) { }
@@ -32,6 +48,18 @@ selected_card_1: any;
           console.log("category array", this.category_Array);
           
         });
+    
+    this.cocktailService.getCocktailsIngredient()
+        .subscribe((data:any)=>{
+          this.ingredient_Array = data.drinks;
+          console.log("Ingredients array", this.ingredient_Array);
+          
+        });
+  this.cocktailService.getCocktailsGlass()
+      .subscribe((data:any)=>{
+        this.glass_Array = data.drinks;
+        console.log("glass array", this.glass_Array);
+      });
 
     
   }
@@ -54,7 +82,46 @@ selected_card_1: any;
        this.selected_card_1 = this.card_Array[this.random_index_1];
        console.log("selected card", this.selected_card_1); 
        
-    })
+    });
+
+    this.ingredient_index = Math.floor(Math.random()*this.ingredient_Array.length);
+    console.log("random index for ingredient", this.ingredient_index);
+
+    this.ingredient_card = this.ingredient_Array[this.ingredient_index].strIngredient1;
+    console.log("selected card for ingredient array", this.ingredient_card);
+
+    this.cocktailService.getIngredient(this.ingredient_card)
+        .subscribe((data:any)=>{
+          this.card_Array_1 = data.drinks;
+
+          this.ingredient_index_1 = Math.floor(Math.random()*this.card_Array_1.length);
+          console.log("random index in ingredient for card", this.ingredient_index_1);
+
+          this.ingredient_card_1 = this.card_Array_1[this.ingredient_index_1];
+          console.log("selected card in ingredient", this.ingredient_card_1);
+         });
+
+    this.glass_index = Math.floor(Math.random()*this.glass_Array.length);
+    console.log("random index for ingredient", this.glass_index);
+     
+    this.glass_card = this.glass_Array[this.glass_index].strGlass;
+    console.log("selected card for ingredient array", this.glass_card);
+
+    this.cocktailService.getGlass(this.glass_card)
+        .subscribe((data:any)=>{
+          this.card_Array = data.drinks;
+
+          this.glass_index_1 = Math.floor(Math.random()*this.card_Array.length);
+          console.log("random index in glass for card", this.glass_index_1);
+
+          this.glass_card_1 = this.card_Array[this.glass_index_1];
+          console.log("selected card in glass", this.glass_card_1);
+
+        });
+
+   if(this.card_Array){
+     this.showCard = true;
+   }   
     
 
 

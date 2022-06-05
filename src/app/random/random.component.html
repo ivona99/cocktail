@@ -2,12 +2,26 @@
     <app-card *ngFor="let rand of randomArray" [data]="rand" (countEvent)="parentFunction($event)" (detailEvent)="onDetail(rand)" [showCard]="showCard" [isSelected]="isSelected"></app-card>
 </div>-->
 
-<div>
-  <p>{{selected_card}}</p>
-<div class="d-flex flex-wrap justify-content-center">
-    <app-card  [data]="selected_card_1" (countEvent)="parentFunction($event)" (detailEvent)="onDetail(selected_card_1)" [showCard]="showCard" [isSelected]="isSelected"></app-card>
+<div class="d-flex flex-column align-items-center">
+<div class="d-flex flex-wrap justify-content-evenly flex-row" style="padding-top:20px;">
+  <div class="app_column_card">
+    <h3 *ngIf="showCard">Category</h3>
+    <p style="height:unset ;">{{selected_card}}</p>
+    <app-card  [data]="selected_card_1" (countEvent)="parentFunction($event)" (detailEvent)="onDetail(selected_card_1)" [showCard]="showCard"  [isSelected]="isSelected"></app-card>
+  </div>
+  <div class="app_column_card">
+    <h3 *ngIf="showCard">Ingredient</h3>
+    <p style="height:unset ;">{{ingredient_card}}</p>
+    <app-card  [data]="ingredient_card_1" (countEvent)="parentFunction($event)" (detailEvent)="onDetail(ingredient_card_1)" [showCard]="showCard"  [isSelected]="isSelected"></app-card>
+  </div>
+  <div class="app_column_card">
+    <h3 *ngIf="showCard">Glass</h3>
+    <p style="height:unset ;">{{glass_card}}</p>
+    <app-card  [data]="glass_card_1" (countEvent)="parentFunction($event)" (detailEvent)="onDetail(glass_card_1)" [showCard]="showCard"  [isSelected]="isSelected"></app-card>
+  </div>
 </div>
-  <button (click)="getRandomCocktail()" id="btnRand">Random</button>
+<button (click)="getRandomCocktail()" class="button-74" role="button">Random</button>
+<!--<button (click)="getRandomCocktail()" id="btnRand">Random</button>-->
 </div>
 
 <div class="container" *ngIf="showModal">
