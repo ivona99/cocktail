@@ -1,15 +1,13 @@
-button{
+.list-button{
   padding: 10px 20px;
   border-radius: 12px;
-  border: 2px solid grey;
-  background-color: #f2f2f2;
-}
-.center {
-  padding: 15px 115px  ;
+  /* background-color: #f2f2f2 */
+   background: url("https://img.rawpixel.com/s3fs-private/rawpixel_images/website_content/rm314-adj-04-a_1.jpg?w=800&dpr=1&fit=default&crop=default&q=65&vib=3&con=3&usm=15&bg=F4F4F3&ixlib=js-2.2.1&s=8e556d33039d4ba6e9c5df335a7515ef");
+  border: none;
 }
 .container{
   position: fixed;
-  display: block;
+  display: flex;
   max-width: unset;
   top: 0%;
   width: 100%;
@@ -20,12 +18,22 @@ button{
 
 }
 .modal-content{
-  width:600px;
-  height:400px;
+  /* width:1500px;
+  height:900px; */
+  width:1200px;
+  height:650px;
   margin: auto;
-  transform: translate(0%, 50%);
-}
+  display: flex;
+  justify-content: center;
 
+}
+.around-div-content{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 100%;
+}
 .close_button{
   background-color:#fff;
   height: 50px;
@@ -34,19 +42,42 @@ button{
   border: none;
   float: right;
 }
-p{
-  height: 230px;
+.body-content-img{
+   /* background-color:#f0f5f5; */
+   background: url("https://img.rawpixel.com/s3fs-private/rawpixel_images/website_content/rm314-adj-04-a_1.jpg?w=800&dpr=1&fit=default&crop=default&q=65&vib=3&con=3&usm=15&bg=F4F4F3&ixlib=js-2.2.1&s=8e556d33039d4ba6e9c5df335a7515ef");
+   width: 50%;
+   height: 100%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
 
 }
-hr{
-  margin: 0%;
-}
-.body{
-  background-color: #d1e0e0;
-}
-.card-container{
-  width: 100%;
+.body-content-desc{
+  width: 50%;
+  height: 100%;
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+}
+.around-tags{
+  display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
+  height: 80%;
+}
+.modal-paragraph{
+  text-align:center;
+  height: unset;
+
+}
+.title-modal-all{
+  text-align:center;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.sticker{
+  align-self: flex-start;
+  margin-top: 8px;
+  transform: translateX(-1.5rem) rotate(20deg);
 }

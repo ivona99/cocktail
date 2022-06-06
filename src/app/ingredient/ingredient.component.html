@@ -10,57 +10,46 @@
     <button (click)="onSelect(ingredient)" type="button" class="btn btn-light">{{ingredient.strIngredient1}}</button>
   </div>
 </div>
-<!-- <div *ngFor="let newing of newIngredients" class="container">
-  <div class="container-header">
-    <h5>{{newing.strDrink}}</h5>
-    <div class="container-body">
-      <img src="{{newing.strDrinkThumb}}">
-    </div>
-  </div>
-</div> -->
+
 <div class="d-flex flex-wrap justify-content-center">
   <div *ngFor="let name of searchResults">
     <div class="d-flex flex-wrap justify-content-center align-content-between">
       <div style="padding:20px 0px;">Ingredient name: {{name.strIngredient}}</div>
       <div style="padding:20px 30px;">Description: {{name.strDescription}}</div>
-  </div>
-  </div>
+   </div>
+ </div>
 </div>
 
-<!-- <div class="card-container" *ngIf="showCard">
-  <div class="card-deck"  style="width:400px; padding:10px 15px;" *ngFor="let newing of newIngredients">
-    <div  class="card" style="border: 1px solid #555555;">
-      <img class="card-img-top" src="{{newing.strDrinkThumb}}" >
-      <div class="card-body" style="background-color:#f0f5f5;">
-        <h5 class="card-title" style="text-align:center;">{{newing.strDrink}}</h5>
-      </div>
-      <div class="card-footer" style="height:60px;">
-        <div class="center">
-          <button (click)="onDetail(newing)" id="myBtn">Detail</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</div> -->
 
 <div class="d-flex flex-wrap justify-content-center">
   <app-card *ngFor="let ingredient of newIngredients" [data]="ingredient" (countEvent)="parentFunction($event)" (favoriteEvent)="favoriteFunction()" (detailEvent)="onDetail(ingredient)" [showCard]="showCard" [isSelected]="isSelected"></app-card>
- </div>
+</div>
 
-<div class="container" *ngIf="showModal">
-  <div class="modal-content" *ngFor="let newing of details">
-    <div  class="d-flex justify-content-end">
-      <button class="close_button" (click)="onCloseModal()" style="font-size:30px; cursor: pointer;" id="close">&times;</button>
+ <div class="container" (click)="onCloseModal()" *ngIf="showModal">
+  <div class="modal-content" *ngFor="let newcat of details">
+    <div class="around-div-content">
+      <div class="body-content-img">
+        <div class="frame-image" style="border: black solid 3px ;">
+          <img src="{{newcat.strDrinkThumb}}" style="height: 400px; width:400px; border: white solid 3px;">
+        </div>
+      </div>
+      <div class="sticker">
+        <img src="./assets/cock_9.jpg" style="height:67px; width:56px;">
+      </div>
+      <div class="body-content-desc">
+        <div  class="d-flex justify-content-end">
+          <button class="close_button" (click)="onCloseModal()" style="font-size:30px; cursor: pointer;" id="close">&times;</button>
+        </div>
+        <div class="around-tags">
+          <h3 style="text-align:center; text-transform: uppercase; font-weight: bold;">{{newcat.strDrink}}</h3>
+           <p class ="modal-paragraph"><span class="title-modal-all">Category:</span>{{newcat.strCategory}}</p>
+           <p class ="modal-paragraph"><span class="title-modal-all">Glass: </span>{{newcat.strGlass}}</p>
+           <p class ="modal-paragraph"><span class="title-modal-all">Ingredinet 1: </span>{{newcat.strIngredient1}}</p>
+           <p class ="modal-paragraph"><span class="title-modal-all">Ingredient 2: </span> {{newcat.strIngredient2}}</p>
+           <p class ="modal-paragraph"><span class="title-modal-all">Measure: </span> {{newcat.strMeasure1}}</p>
+           <p class ="modal-paragraph"><span class="title-modal-all">Instructions: </span>{{newcat.strInstructions}}</p>
+        </div>
+      </div>
     </div>
-  <div class="header">
-  <h5 style="text-align:center;">{{newing.strDrink}}</h5>
-</div>
-<hr>
-<div class="body">
-  <br>
-  <p style="text-align:center;">{{newing.strInstructions}}</p>
-</div>
-<div class="modal-footer" style="padding: 8px 16px;">
-</div>
   </div>
 </div>

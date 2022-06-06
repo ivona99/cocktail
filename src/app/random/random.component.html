@@ -1,7 +1,3 @@
-<!-- <div class="d-flex flex-wrap justify-content-center">
-    <app-card *ngFor="let rand of randomArray" [data]="rand" (countEvent)="parentFunction($event)" (detailEvent)="onDetail(rand)" [showCard]="showCard" [isSelected]="isSelected"></app-card>
-</div>-->
-
 <div class="d-flex flex-column align-items-center">
 <div class="d-flex flex-wrap justify-content-evenly flex-row" style="padding-top:20px;">
   <div class="app_column_card">
@@ -21,23 +17,33 @@
   </div>
 </div>
 <button (click)="getRandomCocktail()" class="button-74" role="button">Random</button>
-<!--<button (click)="getRandomCocktail()" id="btnRand">Random</button>-->
 </div>
 
-<div class="container" *ngIf="showModal">
+<div class="container" (click)="onCloseModal()" *ngIf="showModal">
   <div class="modal-content" *ngFor="let newcat of details">
-    <div  class="d-flex justify-content-end">
-      <button class="close_button" (click)="onCloseModal()" style="font-size:30px; cursor: pointer;" id="close">&times;</button>
+    <div class="around-div-content">
+      <div class="body-content-img">
+        <div class="frame-image" style="border: black solid 3px ;">
+          <img src="{{newcat.strDrinkThumb}}" style="height: 400px; width:400px; border: white solid 3px;">
+        </div>
+      </div>
+      <div class="sticker">
+        <img src="./assets/cock_9.jpg" style="height:67px; width:56px;">
+      </div>
+      <div class="body-content-desc">
+        <div  class="d-flex justify-content-end">
+          <button class="close_button" (click)="onCloseModal()" style="font-size:30px; cursor: pointer;" id="close">&times;</button>
+        </div>
+        <div class="around-tags">
+          <h3 style="text-align:center; text-transform: uppercase; font-weight: bold;">{{newcat.strDrink}}</h3>
+           <p class ="modal-paragraph"><span class="title-modal-all">Category:</span>{{newcat.strCategory}}</p>
+           <p class ="modal-paragraph"><span class="title-modal-all">Glass: </span>{{newcat.strGlass}}</p>
+           <p class ="modal-paragraph"><span class="title-modal-all">Ingredinet 1: </span>{{newcat.strIngredient1}}</p>
+           <p class ="modal-paragraph"><span class="title-modal-all">Ingredient 2: </span> {{newcat.strIngredient2}}</p>
+           <p class ="modal-paragraph"><span class="title-modal-all">Measure: </span> {{newcat.strMeasure1}}</p>
+           <p class ="modal-paragraph"><span class="title-modal-all">Instructions: </span>{{newcat.strInstructions}}</p>
+        </div>
+      </div>
     </div>
-  <div class="header">
-  <h5 style="text-align:center;">{{newcat.strDrink}}</h5>
-</div>
-<hr>
-<div class="body">
-  <br>
-  <p style="text-align:center;">{{newcat.strInstructions}}</p>
-</div>
-<div class="modal-footer" style="padding: 8px 16px;">
-</div>
   </div>
-</div> 
+</div>
