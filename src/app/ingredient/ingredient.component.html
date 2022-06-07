@@ -1,13 +1,13 @@
 <div class="d-flex flex-row-reverse">
   <div class="search-container" >
-   <input type="text" [(ngModel)]="searchTxt" class="search-click" name="" placeholder="search here..." />
+   <input type="text" [(ngModel)]="searchTxt" (keydown.enter)="onSearch($event.target)"  class="search-click" name="" placeholder="search here..." />
    <button  (click)="onSearch(searchTxt)" class="search-button" type="submit"><i class="fa fa-search" style="color:#555555; ;"></i></button>
   </div>
  </div>
 
 <div class="d-flex align-content-around flex-wrap justify-content-center" style="padding-top:12px ;">
   <div class="p-2" *ngFor="let ingredient of shortIngredients">
-    <button (click)="onSelect(ingredient)" type="button" class="btn btn-light">{{ingredient.strIngredient1}}</button>
+    <button (click)="onSelect(ingredient)" type="button" class="list-button">{{ingredient.strIngredient1}}</button>
   </div>
 </div>
 

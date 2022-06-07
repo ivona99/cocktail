@@ -18,10 +18,10 @@
 
 }
 .modal-content{
-  /* width:1500px;
-  height:900px; */
-  width:1200px;
-  height:650px;
+  width:1500px;
+  height:900px;
+  /* width:1200px;
+  height:650px; */
   margin: auto;
   display: flex;
   justify-content: center;
@@ -53,11 +53,14 @@
   font-size: 17px;
   cursor: pointer;
   margin-right: auto;
-  background:transparent;
+  /* background:transparent; */
+  background: url("https://img.rawpixel.com/s3fs-private/rawpixel_images/website_content/rm314-adj-04-a_1.jpg?w=800&dpr=1&fit=default&crop=default&q=65&vib=3&con=3&usm=15&bg=F4F4F3&ixlib=js-2.2.1&s=8e556d33039d4ba6e9c5df335a7515ef");
+  margin-left: 10px;
   border: none;
   border-radius: 10px;
   width: 60px;
   height: 50px;
+
 }
 
 .search-click {

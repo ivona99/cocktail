@@ -1,6 +1,6 @@
 <div class="d-flex flex-row-reverse">
  <div class="search-container" >
-  <input type="text" [(ngModel)]="searchTxt" class="search-click" name="" placeholder="search here..." />
+  <input type="text" [(ngModel)]="searchTxt" (keydown.enter)="onSearch($event.target)" class="search-click" name="" placeholder="search here..." />
   <button  (click)="onSearch(searchTxt)" class="search-button" type="submit"><i class="fa fa-search" style="color:#555555;"></i></button>
  </div>
 </div>

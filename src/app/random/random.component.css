@@ -18,10 +18,10 @@
 
 }
 .modal-content{
-  /* width:1500px;
-  height:900px; */
-  width:1200px;
-  height:650px;
+  width:1500px;
+  height:900px;
+  /* width:1200px;
+  height:650px; */
   margin: auto;
   display: flex;
   justify-content: center;
@@ -147,12 +147,12 @@
   text-decoration: none;
   user-select: none;
   -webkit-user-select: none;
-  
+
 }
 
 .button-74:hover {
   background-color: #fff;
-  
+
 }
 
 .button-74:active {
@@ -166,4 +166,3 @@
     padding: 0 25px;
   }
 }
-  
