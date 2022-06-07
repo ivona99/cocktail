@@ -1,20 +1,21 @@
 import { CocktailService } from './../cocktail.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,AfterViewInit} from '@angular/core';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit{
 
-  autoSlide = true;
- 
+
+
  constructor(private cocktailService: CocktailService) { }
-
-  ngOnInit(): void {
-   
+  ngAfterViewInit(): void {
+    window.addEventListener('scroll', this.scrollFunction,true);
   }
+
+  ngOnInit(): void {}
 
 
 
@@ -31,8 +32,21 @@ break;
   }
 }
 
+scrollFunction() {
+  let myButton = document.getElementById("myBtn") as HTMLCollectionOf<HTMLElement>[0];
+ if(document.body.scrollTop > 500 || document.documentElement.scrollTop > 500){
+   console.log("button", myButton);
+   myButton.style.display = "block";
+ }else{
+     myButton.style.display = "none";
+  }
+}
 
 
+topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+ }
 }
 
 

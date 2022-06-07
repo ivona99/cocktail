@@ -16,13 +16,12 @@ export class CategoryComponent implements OnInit {
   public newCategories:any=[];
   public details:any =[];
   showModal?:boolean;
-
   searchTxt: any = '';
   searchResults:any;
   showCard = true;
   myCocktails: any;
   isSelected?:boolean;
-counter:any;
+  counter:any;
 
   constructor(
     private cocktailService: CocktailService,
@@ -49,25 +48,22 @@ counter:any;
         // .subscribe(params =>{
         //   // let name = params.get('category');
         //   console.log("name of category in route", params);
-          
+
         // });
-  
-       
+
+
 }
   onSelect(category:any){
     this.router.navigate(['/categories', category.strCategory])
      this.cocktailService.getCategory(category.strCategory)
      .subscribe((data:any) =>{
-   
-
-       this.newCategories = data.drinks;
+      this.newCategories = data.drinks;
       this.newCategories.forEach(function (element:any) {
-        element.isSelected =false;
-
-      });
+      element.isSelected =false;
+    });
 
        console.log(this.newCategories);
-   
+
       if(this.showCard ===  false){
         this.searchResults = null;
         this.showCard = true;
@@ -84,20 +80,9 @@ counter:any;
            for(var i=0;i<this.details.length;i++){
             if(this.details[i].strInstructions === ""){
               this.details[i].strInstructions = "There is no content to show!";
-
             }
           }
-
-
-
-    //     this.details.forEach(function(obj:any) {
-    //       if (obj.strInstructions === "") {
-    //           obj.strInstructions = "There is no content to show!"
-    //       }
-    //   });
-    // console.log(this.details);
-
-         })
+       })
   }
 
 onCloseModal(){
@@ -122,16 +107,12 @@ favoriteFunction(){
       this.myCocktails.forEach((elementO:any) => {
         if(elementO.isSelected == true && elementO.idDrink == element.idDrink){
           element.isSelected=true;
-
           this.isSelected=element.isSelected;
-
-
-
         }
       });
      });
   }
-  }
+}
 
   parentFunction(data:any){
     console.log("counter je ", data);

@@ -17,7 +17,7 @@ export class CardComponent implements OnInit {
   counter = 0;
 
   @Input() data: any;
-  
+
   @Output() detailEvent:EventEmitter<any> = new EventEmitter<any>();
   onDetail(){
     this.detailEvent.emit();
@@ -37,7 +37,7 @@ export class CardComponent implements OnInit {
 
 
 
-  constructor(private cdRef : ChangeDetectorRef) { }
+  constructor() { }
 
 
   ngOnInit(): void {
@@ -122,18 +122,10 @@ onSub(id:any){
       this.counter = this.favArray.length;
       console.log("counter u card", this.counter);
       this.countEvent.emit(this.counter);
-      
     }
-  
-
-  }
-  //this.handleCount.emit(count);
-// type === 'add' ? this.counter++ : this.counter--
+ }
   localStorage.setItem('favorites', JSON.stringify(this.favArray));
 }
-
-
-
 }
 
 
