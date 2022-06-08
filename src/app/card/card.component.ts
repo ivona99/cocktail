@@ -1,3 +1,4 @@
+import { CocktailService } from './../cocktail.service';
 import { AppComponent } from './../app.component';
 //import {CategoryComponent}from './category/category.component';
 import { Component, OnInit, Input, Output, EventEmitter, ChangeDetectionStrategy, ChangeDetectorRef, AfterViewChecked } from '@angular/core';
@@ -11,6 +12,7 @@ import { Injectable } from "@angular/core";
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CardComponent implements OnInit {
+
 
   @Output() countEvent:EventEmitter<any> = new EventEmitter<any>();
 
@@ -126,6 +128,9 @@ onSub(id:any){
  }
   localStorage.setItem('favorites', JSON.stringify(this.favArray));
 }
+
+
+
 }
 
 

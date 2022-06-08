@@ -166,3 +166,13 @@
     padding: 0 25px;
   }
 }
+.horizontal-article{
+  position: relative;
+  transform: translateY(150px);
+  opacity: 0;
+  transition: all 2s ease;
+}
+.horizontal-article.active{
+  transform: translateY(0px);
+  opacity: 1;
+}

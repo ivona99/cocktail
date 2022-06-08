@@ -13,6 +13,7 @@ export class HomeComponent implements OnInit{
  constructor(private cocktailService: CocktailService) { }
   ngAfterViewInit(): void {
     window.addEventListener('scroll', this.scrollFunction,true);
+    window.addEventListener('scroll', this.reveal);
   }
 
   ngOnInit(): void {}
@@ -46,6 +47,22 @@ scrollFunction() {
 topFunction() {
   document.body.scrollTop = 0;
   document.documentElement.scrollTop = 0;
+ }
+ reveal(){
+   let reveals = document.querySelectorAll('.horizontal-article');
+   for(var i=0; i<reveals.length;i++){
+     let windowheight = window.innerHeight;
+     let revealTop = reveals[i].getBoundingClientRect().top;
+     let revealpoint = 150;
+
+     if(revealTop < windowheight - revealpoint){
+       reveals[i].classList.add('active');
+     }
+     else{
+      reveals[i].classList.remove('active');
+     }
+   }
+
  }
 }
 

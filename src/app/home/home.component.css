@@ -34,6 +34,15 @@ h1:after {
   align-content: flex-start;
   margin:0 0 4em;
   align-items: center;
+
+  position: relative;
+  transform: translateY(150px);
+  opacity: 0;
+  transition: all 2s ease;
+}
+.horizontal-article.active{
+  transform: translateY(0px);
+  opacity: 1;
 }
 .text-card-warpper{
   display: flex;
@@ -196,7 +205,7 @@ a.nav-link.active{
   font-size: 18px;
   border: none;
   outline: none;
-  background-color: red;
+  background-color: #253140;
   color: white;
   cursor: pointer;
   padding: 15px;

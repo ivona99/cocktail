@@ -29,6 +29,7 @@ export class CategoryComponent implements OnInit {
     private router:Router,
     private route: ActivatedRoute) { }
 
+
   ngOnInit(): void {
     this.myCocktails = localStorage.getItem("favorites");
     this.myCocktails = JSON.parse(this.myCocktails);
@@ -37,11 +38,13 @@ export class CategoryComponent implements OnInit {
     this.cocktailService.getCocktailsCategory()
         .subscribe((data: any) => {
           this.categories = data.drinks;
+          console.log("categories", this.categories);
+
 
           for(var i=0; i<10; i++){
             this.shortCategories.push(this.categories[i]);
           }
-          console.log(this.shortCategories);
+          console.log("shortCategories",this.shortCategories);
 
         })
         // this.route.paramMap
@@ -62,7 +65,7 @@ export class CategoryComponent implements OnInit {
       element.isSelected =false;
     });
 
-       console.log(this.newCategories);
+       console.log("newCategories",this.newCategories);
 
       if(this.showCard ===  false){
         this.searchResults = null;
@@ -70,6 +73,11 @@ export class CategoryComponent implements OnInit {
         this.newCategories = data.drinks;
       }
  })
+
+
+
+
+
 }
   onDetail(id:any){
     this.cocktailService.getDetail(id.idDrink)
@@ -119,4 +127,5 @@ favoriteFunction(){
     this.counter = data;
     this._sharedService.emitChange(this.counter);
     }
+
 }

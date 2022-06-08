@@ -11,7 +11,7 @@ export class ImagesliderComponent implements OnInit {
   public imgArray:any = [];
   myCanvas: HTMLCollectionOf<HTMLElement> = document.getElementsByClassName('sliderImages') as HTMLCollectionOf<HTMLElement>;
    l =0;
-  
+
 constructor(private cocktailService: CocktailService) { }
 
   ngOnInit(): void {
@@ -23,9 +23,10 @@ constructor(private cocktailService: CocktailService) { }
          }
        console.log(this.imgArray);
         });
-      
+
      }
- 
+
+
 rightArrow(){
   this.l++;
   for(var i = 0; i<this.myCanvas.length;i++){
@@ -53,5 +54,6 @@ leftArrow(){
     if(this.l<0) {this.l=0;}
   }
 }
+
 
 }

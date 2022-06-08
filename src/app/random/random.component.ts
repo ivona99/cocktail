@@ -34,8 +34,8 @@ glass_Array:any=[];
   glass_card: any;
   glass_index_1: any;
   glass_card_1: any;
-  
-  
+
+
 
   constructor(private cocktailService: CocktailService,
     private _sharedService: SharedService) { }
@@ -46,14 +46,14 @@ glass_Array:any=[];
         .subscribe((data:any)=>{
           this.category_Array = data.drinks;
           console.log("category array", this.category_Array);
-          
+
         });
-    
+
     this.cocktailService.getCocktailsIngredient()
         .subscribe((data:any)=>{
           this.ingredient_Array = data.drinks;
           console.log("Ingredients array", this.ingredient_Array);
-          
+
         });
   this.cocktailService.getCocktailsGlass()
       .subscribe((data:any)=>{
@@ -61,8 +61,9 @@ glass_Array:any=[];
         console.log("glass array", this.glass_Array);
       });
 
-    
+
   }
+
 
   getRandomCocktail(){
     this.random_index = Math.floor(Math.random()*this.category_Array.length);
@@ -78,10 +79,10 @@ glass_Array:any=[];
        console.log("u servisu", this.selected_card);
        this.random_index_1 = Math.floor(Math.random()*this.card_Array.length);
        console.log("random index for card", this.random_index_1);
-   
+
        this.selected_card_1 = this.card_Array[this.random_index_1];
-       console.log("selected card", this.selected_card_1); 
-       
+       console.log("selected card", this.selected_card_1);
+
     });
 
     this.ingredient_index = Math.floor(Math.random()*this.ingredient_Array.length);
@@ -103,7 +104,7 @@ glass_Array:any=[];
 
     this.glass_index = Math.floor(Math.random()*this.glass_Array.length);
     console.log("random index for ingredient", this.glass_index);
-     
+
     this.glass_card = this.glass_Array[this.glass_index].strGlass;
     console.log("selected card for ingredient array", this.glass_card);
 
@@ -121,8 +122,8 @@ glass_Array:any=[];
 
    if(this.card_Array){
      this.showCard = true;
-   }   
-    
+   }
+
 
 
   }
@@ -150,5 +151,6 @@ glass_Array:any=[];
     this.counter = data;
     this._sharedService.emitChange(this.counter);
   }
+
 
 }
