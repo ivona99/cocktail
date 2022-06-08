@@ -214,3 +214,38 @@ a.nav-link.active{
 #myBtn:hover {
   background-color: #555;
 }
+.image-video-wrp{
+  margin-top: 20px;
+}
+.backgr-video{
+  width:90%;
+  height: 500px;
+  background-color: #394a62;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.all-cont{
+  display: flex;
+  justify-content: center;
+}
+.inside-backgr{
+  background-color: #eff2f6;
+  width: 94%;
+  height: 400px;
+  display: flex;
+  align-items: center;
+justify-content: center;
+flex-direction: column;
+}
+.text-in{
+  text-transform: uppercase;
+}
+.play-btn{
+  border-radius: 20px;
+  height: 50px;
+  width: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
