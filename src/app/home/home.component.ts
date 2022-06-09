@@ -1,5 +1,6 @@
 import { CocktailService } from './../cocktail.service';
 import { Component, OnInit,AfterViewInit} from '@angular/core';
+import { DomSanitizer,SafeResourceUrl  } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-home',
@@ -7,16 +8,21 @@ import { Component, OnInit,AfterViewInit} from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit{
+  showVideo:boolean;
+  safeURL:  SafeResourceUrl;;
+ // videoUrl = 'https://www.youtube.com/watch?v=OiRVs3FGbkc'
+ constructor(private cocktailService: CocktailService,
+  private _sanitizer: DomSanitizer) {
 
-
-
- constructor(private cocktailService: CocktailService) { }
+  }
   ngAfterViewInit(): void {
     window.addEventListener('scroll', this.scrollFunction,true);
     window.addEventListener('scroll', this.reveal);
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.safeURL = this._sanitizer.bypassSecurityTrustResourceUrl('https://www.youtube.com/embed/OiRVs3FGbkc');
+  }
 
 
 
@@ -49,7 +55,7 @@ topFunction() {
   document.documentElement.scrollTop = 0;
  }
  reveal(){
-   let reveals = document.querySelectorAll('.horizontal-article');
+   let reveals = document.querySelectorAll(".horizontal-article, .backgr-video");
    for(var i=0; i<reveals.length;i++){
      let windowheight = window.innerHeight;
      let revealTop = reveals[i].getBoundingClientRect().top;
@@ -63,6 +69,13 @@ topFunction() {
      }
    }
 
+ }
+ changeVideo(){
+   this.showVideo = true;
+ }
+
+ onCloseModal(){
+   this.showVideo = false;
  }
 }
 

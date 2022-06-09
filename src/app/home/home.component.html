@@ -160,15 +160,26 @@
   <div class="all-cont">
     <div class="backgr-video">
       <div class="inside-backgr">
-        <h1 class="text-in">How to make</h1>
-         <h1 class="text-in">Lagoon Cocktail</h1>
-         <button class="play-btn"><i style="font-size:24px" class="fa">&#xf04b;</i></button>
+        <h1 class="text-in" style=" font-size: 38px;">How to make</h1>
+         <h1 class="text-in" style=" font-size: 45px;">Lagoon Cocktail</h1>
+         <button (click)="changeVideo()" class="play-btn"><i style="font-size:24px; color: #394a62;" class="fa">&#xf04b;</i></button>
       </div>
     </div>
   </div>
 </div>
-
-
+<div class="container" *ngIf="showVideo">
+ <div class="show-video">
+  <div  class="d-flex justify-content-end">
+    <button class="close_button" (click)="onCloseModal()" style="font-size:30px; cursor: pointer;" id="close">&times;</button>
+  </div>
+  <div class="with-video">
+    <iframe [src]='safeURL' width="1500" height="800" frameborder="0" allowfullscreen></iframe>
+   <!-- <video width="940" height="400" controls>
+     <source src="https://www.youtube.com/watch?v=OiRVs3FGbkc" type="video/mp4">
+  </video> -->
+  </div>
+ </div>
+</div>
 
 
 <footer class="cocktail-footer">

@@ -48,13 +48,6 @@ button{
 .card:hover {
   -webkit-transform: scale(1.1, 1.05);
 }
-/* .card:hover {
-  transform: scale(1.1);
-  box-shadow: 0 10px 40px 0 rgba(0, 0, 0, 0.4);
-  z-index: 3;
-
-
-} */
 .card-deck{
   width:380px;
   height: 550px;
