@@ -103,6 +103,8 @@ onSearch(name:any){
        console.log("category", data);
        if(data && data.drinks && this.searchTxt!==''){
          this.searchResults = data.drinks;
+         console.log("search" ,this.searchResults);
+         
        }
        this.showCard = false;
 
